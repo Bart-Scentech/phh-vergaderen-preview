@@ -56,6 +56,7 @@ ul { list-style: none; }
 ═══════════════════════════════════════════════════════════ */
 .vz-slider-wrap {
   overflow: hidden;
+  padding: 0 60px; /* spacing links en rechts */
 }
 .vz-slider {
   display: flex;
@@ -70,6 +71,7 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: 1fr 470px 1fr;
   align-items: stretch;
+  gap: 0; /* kaarten en foto sluiten naadloos op elkaar */
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -217,7 +219,7 @@ ul { list-style: none; }
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  padding: 22px 44px 0;
+  padding: 22px 60px 0; /* matcht slider-wrap padding */
 }
 .vz-counter {
   font-family: 'Lato', sans-serif;
@@ -259,11 +261,17 @@ ul { list-style: none; }
   .vz-header { padding-bottom: 48px; }
   .vz-header h2 { font-size: 34px; }
 
-  /* Single kolom, volgorde: kaart-links → foto → kaart-rechts */
+  /* Slider wrap: ook op mobile horizontaal, padding links/rechts kleiner */
+  .vz-slider-wrap { padding: 0 20px; }
+
+  /* Elke slide: HORIZONTALE slider blijft — slide wordt single-column */
   .vz-slide {
+    min-width: 100%;           /* cruciaal: slide neemt exact 100% van slider-wrap in */
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
   }
+
+  /* Volgorde op mobile: kaart-links boven, foto midden, kaart-rechts onder */
   .vz-card:first-child { order: 1; }
   .vz-photo           { order: 2; min-height: 260px; }
   .vz-card:last-child { order: 3; }
