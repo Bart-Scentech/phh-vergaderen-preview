@@ -3,424 +3,499 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vergaderen en Bijeenkomst — Parkhotel Horst</title>
+  <title>Vergaderen &amp; Bijeenkomst — Parkhotel Horst ★★★★</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Fallback Google Fonts embed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- ============================================================
-     TOP BAR
+     SECTIE 1: TOPBALK
      ============================================================ -->
-<div class="nav-top">
-  <div class="container">
-    <div>
-      <a href="mailto:info@parkhotelhorst.nl">info@parkhotelhorst.nl</a>
-      &nbsp;·&nbsp;
-      <a href="tel:+31774641000">077 464 1000</a>
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="topbar__left">
+      <a href="#" class="topbar__item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Vacatures
+      </a>
+      <span class="topbar__sep">|</span>
+      <a href="tel:+31773976000" class="topbar__item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12 19.79 19.79 0 0 1 1.65 3.41 2 2 0 0 1 3.62 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.84-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.57 16z"/></svg>
+        +31 773 97 60 00
+      </a>
+      <span class="topbar__sep">|</span>
+      <a href="mailto:info@parkhotelhorst.nl" class="topbar__item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@parkhotelhorst.nl
+      </a>
     </div>
-    <div>
-      <a href="#">NL</a> &nbsp;/&nbsp; <a href="#">EN</a> &nbsp;/&nbsp; <a href="#">DE</a>
+    <div class="topbar__right">
+      <a href="#" class="topbar__item">Over ons</a>
+      <a href="#" class="topbar__item">Contact</a>
+      <a href="#" class="topbar__item topbar__lang">
+        <svg width="16" height="12" viewBox="0 0 30 20"><rect width="30" height="20" fill="#AE1C28"/><rect width="30" height="6.67" y="6.67" fill="#FFF"/></svg>
+        NL
+      </a>
+      <a href="#" class="topbar__item topbar__lang">
+        <svg width="16" height="12" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect width="30" height="6.67" y="6.67" fill="#D00"/><rect width="30" height="6.67" y="13.33" fill="#FFCC00"/></svg>
+        DE
+      </a>
     </div>
   </div>
 </div>
 
 <!-- ============================================================
-     NAVIGATION
+     SECTIE 2: HOOFDNAVIGATIE
      ============================================================ -->
-<nav class="nav-main">
-  <div class="container">
-    <a href="#" class="nav-logo">Parkhotel <span>|</span> Horst</a>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <div class="nav__logo">
+      <div class="nav__stars">★★★★</div>
+      <div class="nav__name">
+        <span class="nav__name-park">Parkhotel</span>
+        <span class="nav__name-horst">Horst</span>
+      </div>
+    </div>
 
-    <div class="nav-zoover">
+    <div class="nav__review">
+      <span class="nav__zoover">zoo<span>Ver</span></span>
+      <div class="nav__score-bubble">7,5</div>
+      <div class="nav__score-text">
+        <strong>Fantastisch</strong>
+        <span>Score uit <u>244 reviews</u></span>
+      </div>
+    </div>
+
+    <div class="nav__actions">
+      <button class="btn-menu" id="menuToggle" aria-label="Menu openen">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+          <rect width="18" height="2" fill="currentColor"/>
+          <rect y="6" width="18" height="2" fill="currentColor"/>
+          <rect y="12" width="18" height="2" fill="currentColor"/>
+        </svg>
+        Menu
+      </button>
+      <a href="#" class="btn btn--gold">Zoek en boek</a>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay Menu -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay__close" id="menuClose" aria-label="Menu sluiten">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <nav class="menu-overlay__nav">
+    <a href="#">Hotel</a>
+    <a href="#">Restaurant — BØFF</a>
+    <a href="#">Wellness &amp; Faciliteiten</a>
+    <a href="#">Vergaderen &amp; Bijeenkomst</a>
+    <a href="#">Evenementen</a>
+    <a href="#">Omgeving</a>
+    <a href="#">Contact</a>
+  </nav>
+</div>
+
+<!-- ============================================================
+     SECTIE 3: HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <div class="hero__content fade-in">
+    <p class="label label--gold">VERGADEREN EN BIJEENKOMST</p>
+    <h1 class="hero__title">Vergaderen en bijeenkomst</h1>
+    <p class="hero__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTIE 4: USP-BALK
+     ============================================================ -->
+<section class="usp">
+  <div class="usp__inner">
+    <div class="usp__item">
+      <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="#c8973a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V19h20V9"/><path d="M1 9h22"/><path d="M8 9V5a4 4 0 0 1 8 0v4"/><rect x="4" y="13" width="4" height="4" rx="0.5"/></svg>
       <div>
-        <div style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.5;">Zoover</div>
-        <div class="score">7.5</div>
+        <strong>12 multifunctionele zalen</strong>
+        <span>voor 4 tot 200 personen</span>
       </div>
-      <div style="font-size:11px; color: var(--text-muted); line-height:1.4;">Gasten<br>beoordeling</div>
     </div>
-
-    <div class="nav-links">
-      <a href="#">Kamers</a>
-      <a href="#">Restaurant</a>
-      <a href="#vergaderen" class="active">Vergaderen</a>
-      <a href="#">Arrangementen</a>
-      <a href="#">Contact</a>
-      <a href="#contact" class="btn btn-gold" style="padding: 10px 20px; font-size:11px;">Zoek en boek</a>
+    <div class="usp__sep"></div>
+    <div class="usp__item">
+      <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="#c8973a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div>
+        <strong>Verscholen in het groen</strong>
+        <span>aan het water</span>
+      </div>
     </div>
-
-    <div class="hamburger" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
-
-<div class="mobile-menu">
-  <a href="#">Kamers</a>
-  <a href="#">Restaurant</a>
-  <a href="#vergaderen">Vergaderen</a>
-  <a href="#">Arrangementen</a>
-  <a href="#">Contact</a>
-  <a href="#contact" class="btn btn-gold" style="margin-top: 8px; text-align:center;">Zoek en boek</a>
-</div>
-
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section class="hero" id="vergaderen">
-  <div class="hero-img" style="background-image: url('https://picsum.photos/seed/hotel-aerial/1920/900');"></div>
-  <div class="hero-content">
-    <div class="container">
-      <div class="hero-label fade-in">Vergaderen &amp; Bijeenkomst</div>
-      <h1 class="fade-in" style="transition-delay: 0.1s;">Vergaderen en<br>bijeenkomst</h1>
+    <div class="usp__sep"></div>
+    <div class="usp__item">
+      <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="#c8973a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8.5h4m2 0h2M7 11.5h2m2 0h4"/></svg>
+      <div>
+        <strong>Uitstekend bereikbaar</strong>
+        <span>met gratis parkeren</span>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="hero-usps">
-  <div class="container">
-    <div class="usp-item fade-in">
-      <div class="usp-icon">🌿</div>
-      <div class="usp-text">
-        <strong>Unieke locatie</strong>
-        <span>Verscholen in het landelijk groen aan het water</span>
-      </div>
-    </div>
-    <div class="usp-item fade-in" style="transition-delay: 0.1s;">
-      <div class="usp-icon">🤝</div>
-      <div class="usp-text">
-        <strong>Professionele begeleiding</strong>
-        <span>Ervaren eventteam voor elk type bijeenkomst</span>
-      </div>
-    </div>
-    <div class="usp-item fade-in" style="transition-delay: 0.2s;">
-      <div class="usp-icon">⚙️</div>
-      <div class="usp-text">
-        <strong>Uitstekende faciliteiten</strong>
-        <span>12 multifunctionele zalen voor 4 tot 200 personen</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ============================================================
-     SCENARIO CARDS
+     SECTIE 5: SCENARIO'S / PAKKETTEN
      ============================================================ -->
-<section class="scenarios" id="scenarios">
-  <div class="section-header fade-in">
-    <div class="section-label">Onze pakketten</div>
-    <h2 class="section-title">Kies uw scenario</h2>
+<section class="scenarios">
+  <div class="scenarios__header fade-in">
+    <p class="label label--gold-sm">ONZE PAKKETTEN</p>
+    <h2 class="section-title section-title--white">Kies uw scenario</h2>
+    <p class="section-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 
-  <div class="scenarios-slider-wrap">
-    <div class="scenarios-slider" id="scenarios-slider">
+  <div class="scenarios__slider-wrap">
+    <div class="scenarios__track" id="scenariosTrack">
 
-      <div class="scenario-card fade-in">
-        <div class="scenario-card-img">
-          <img src="https://picsum.photos/seed/meeting1/600/360" alt="Dagdeel arrangement" loading="lazy">
+      <!-- Card 1: Dagdeel -->
+      <div class="scenario-card">
+        <div class="scenario-card__img">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=640&q=80" alt="Dagdeel vergadering" loading="lazy">
         </div>
-        <div class="scenario-card-body">
-          <div class="scenario-card-title">Dagdeel</div>
-          <div class="scenario-price">€19,50 <span>p.p.</span></div>
-          <ul class="scenario-features">
-            <li>Gebruik zaal (ochtend of middag)</li>
-            <li>Koffie, thee &amp; frisdrank</li>
-            <li>1x lunch of diner</li>
-            <li>Flip-over &amp; beamer</li>
-            <li>Gratis parkeren</li>
+        <div class="scenario-card__body">
+          <h3 class="scenario-card__name">Dagdeel</h3>
+          <p class="scenario-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+          <div class="scenario-card__sep"></div>
+          <div class="scenario-card__price-row">
+            <span class="scenario-card__price">€ 19,50 p.p.</span>
+            <button class="info-btn" title="Meer informatie">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </button>
+            <span class="scenario-card__excl">(excl. zaalhuur)</span>
+          </div>
+          <ul class="scenario-card__list">
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Koffie, thee en water inbegrepen</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pepermuntjes</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Handfruit</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Flip-over in de zaal</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Gratis WiFi</li>
           </ul>
-          <a href="#contact" class="btn btn-outline-dark">Vraag offerte aan</a>
+          <div class="scenario-card__btns">
+            <a href="#" class="btn btn--gold btn--full">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Meer info</a>
+          </div>
         </div>
       </div>
 
-      <div class="scenario-card fade-in" style="transition-delay: 0.08s;">
-        <div class="scenario-card-img">
-          <img src="https://picsum.photos/seed/meeting2/600/360" alt="Hele dag arrangement" loading="lazy">
+      <!-- Card 2: Hele dag -->
+      <div class="scenario-card">
+        <div class="scenario-card__img">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=640&q=80" alt="Hele dag vergadering" loading="lazy">
         </div>
-        <div class="scenario-card-body">
-          <div class="scenario-card-title">Hele dag</div>
-          <div class="scenario-price">€37,50 <span>p.p.</span></div>
-          <ul class="scenario-features">
-            <li>Gebruik zaal (hele dag)</li>
-            <li>Onbeperkt koffie &amp; thee</li>
-            <li>2x koffie-/theepauze met gebak</li>
-            <li>Lunch &amp; 2-gangen diner</li>
-            <li>Flip-over, beamer &amp; scherm</li>
+        <div class="scenario-card__body">
+          <h3 class="scenario-card__name">Hele dag</h3>
+          <p class="scenario-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+          <div class="scenario-card__sep"></div>
+          <div class="scenario-card__price-row">
+            <span class="scenario-card__price">€ 37,50 p.p.</span>
+            <button class="info-btn" title="Meer informatie">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </button>
+            <span class="scenario-card__excl">(excl. zaalhuur)</span>
+          </div>
+          <ul class="scenario-card__list">
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Koffie, thee en water inbegrepen</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pepermuntjes</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Handfruit</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Flip-over in de zaal</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Gratis WiFi</li>
+            <li><span class="check check--green"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4a7c59" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#4a7c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Goed verzorgde lunch in ons restaurant</li>
           </ul>
-          <a href="#contact" class="btn btn-outline-dark">Vraag offerte aan</a>
+          <div class="scenario-card__btns">
+            <a href="#" class="btn btn--gold btn--full">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Meer info</a>
+          </div>
         </div>
       </div>
 
-      <div class="scenario-card fade-in" style="transition-delay: 0.16s;">
-        <div class="scenario-card-img">
-          <img src="https://picsum.photos/seed/hotel-room1/600/360" alt="24-uur arrangement" loading="lazy">
+      <!-- Card 3: 24-uur -->
+      <div class="scenario-card">
+        <div class="scenario-card__img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=640&q=80" alt="24-uur arrangement" loading="lazy">
         </div>
-        <div class="scenario-card-body">
-          <div class="scenario-card-title">24-uur arrangement</div>
-          <div class="scenario-price">€189,- <span>p.p.</span></div>
-          <ul class="scenario-features">
-            <li>Vergaderzaal (hele dag)</li>
-            <li>Onbeperkt koffie &amp; thee</li>
-            <li>Lunch, diner &amp; ontbijt</li>
-            <li>Overnachting standaardkamer</li>
-            <li>AV-apparatuur</li>
-            <li>Toegang zwembad &amp; wellness</li>
+        <div class="scenario-card__body">
+          <h3 class="scenario-card__name">24-uur</h3>
+          <p class="scenario-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+          <div class="scenario-card__sep"></div>
+          <div class="scenario-card__price-row">
+            <span class="scenario-card__price">€ 189,- p.p.</span>
+            <button class="info-btn" title="Meer informatie">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </button>
+            <span class="scenario-card__excl">(excl. zaalhuur)</span>
+          </div>
+          <ul class="scenario-card__list">
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Goed verzorgde lunch in ons restaurant</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Driegangendiner</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Overnachting comfortabele hotelkamer</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Uitgebreid ontbijtbuffet</li>
           </ul>
-          <a href="#contact" class="btn btn-outline-dark">Vraag offerte aan</a>
+          <div class="scenario-card__btns">
+            <a href="#" class="btn btn--gold btn--full">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Meer info</a>
+          </div>
         </div>
       </div>
 
-      <div class="scenario-card fade-in" style="transition-delay: 0.24s;">
-        <div class="scenario-card-img">
-          <img src="https://picsum.photos/seed/hotel-suite/600/360" alt="2-daags arrangement" loading="lazy">
+      <!-- Card 4: 2-daags -->
+      <div class="scenario-card">
+        <div class="scenario-card__img">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=640&q=80" alt="2-daags arrangement" loading="lazy">
         </div>
-        <div class="scenario-card-body">
-          <div class="scenario-card-title">2-daags arrangement</div>
-          <div class="scenario-price">€210,- <span>p.p.</span></div>
-          <ul class="scenario-features">
-            <li>Vergaderzaal (2 dagen)</li>
-            <li>Alle maaltijden inbegrepen</li>
-            <li>1x overnachting</li>
-            <li>AV-apparatuur &amp; flip-overs</li>
-            <li>Plenaire zaal &amp; breakout ruimtes</li>
-            <li>Teambuilding activiteit</li>
+        <div class="scenario-card__body">
+          <h3 class="scenario-card__name">2-daags</h3>
+          <p class="scenario-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+          <div class="scenario-card__sep"></div>
+          <div class="scenario-card__price-row">
+            <span class="scenario-card__price">€ 210,- p.p.</span>
+            <button class="info-btn" title="Meer informatie">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </button>
+            <span class="scenario-card__excl">(excl. zaalhuur)</span>
+          </div>
+          <ul class="scenario-card__list">
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>2x Goed verzorgde lunch</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Driegangendiner</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Overnachting comfortabele hotelkamer</li>
+            <li><span class="check check--gold"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c8973a" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="14" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round"/></svg></span>Uitgebreid ontbijtbuffet</li>
           </ul>
-          <a href="#contact" class="btn btn-outline-dark">Vraag offerte aan</a>
+          <div class="scenario-card__btns">
+            <a href="#" class="btn btn--gold btn--full">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Meer info</a>
+          </div>
         </div>
       </div>
 
-    </div>
-  </div>
+    </div><!-- /.scenarios__track -->
+  </div><!-- /.scenarios__slider-wrap -->
 
-  <div class="slider-nav">
-    <button class="slider-btn" id="scenarios-prev" aria-label="Vorige">&#8592;</button>
-    <div class="slider-dots" id="scenarios-dots"></div>
-    <button class="slider-btn" id="scenarios-next" aria-label="Volgende">&#8594;</button>
+  <div class="slider-controls">
+    <button class="slider-btn" id="scenariosPrev" aria-label="Vorige">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8l8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="slider-counter" id="scenariosCounter">1/4</span>
+    <button class="slider-btn" id="scenariosNext" aria-label="Volgende">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1 1l8 7-8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
 </section>
 
 <!-- ============================================================
-     INTRO TEXT + PHOTO
+     SECTIE 6: TEKST + FOTO
      ============================================================ -->
-<section class="text-photo">
-  <div class="text-photo-inner">
-    <div class="text-photo-img">
-      <img src="https://picsum.photos/seed/hotel-garden/900/700" alt="Parkhotel Horst tuin" loading="lazy">
-    </div>
-    <div class="text-photo-content">
-      <div class="section-label">Over ons</div>
-      <h2 class="fade-in">De perfecte setting voor uw vergadering</h2>
-      <p class="fade-in">Verscholen in het landelijk groen van Noord-Limburg biedt Parkhotel Horst een unieke combinatie van rust en professionaliteit. Of u nu een strategisch directieoverleg organiseert of een teamdag voor 150 mensen — wij zorgen dat alles tot in de puntjes geregeld is.</p>
-      <p class="fade-in">Met 12 multifunctionele zalen, moderne AV-apparatuur en een professioneel eventteam is elke bijeenkomst bij ons een succes. Geniet daarna van onze cuisine in Restaurant BØFF of ontspan in ons zwembad en wellness.</p>
-      <a href="#contact" class="btn btn-gold fade-in">Vraag offerte aan</a>
-    </div>
+<section class="split-section">
+  <div class="split-section__text fade-in">
+    <p class="label label--gold-sm">OVER ONS</p>
+    <h2 class="split-section__title">Lorem ipsum dolor sit</h2>
+    <p class="split-section__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p class="split-section__body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <a href="#" class="btn btn--gold">Vraag offerte aan</a>
+  </div>
+  <div class="split-section__img">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Vergaderzaal Parkhotel Horst" loading="lazy">
   </div>
 </section>
 
 <!-- ============================================================
-     VERGADERZALEN
+     SECTIE 7: VERGADERZALEN
      ============================================================ -->
-<section class="vergaderzalen hex-bg" id="zalen">
-  <div class="section-header fade-in">
-    <div class="section-label" style="color: var(--gold);">Onze ruimtes</div>
-    <h2 class="section-title">Onze vergaderzalen</h2>
+<section class="rooms">
+  <div class="rooms__header fade-in">
+    <p class="label label--gold-sm">ONZE RUIMTES</p>
+    <h2 class="section-title section-title--white">Onze vergaderzalen</h2>
+    <p class="section-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 
-  <div class="rooms-slider-wrap">
-    <div class="rooms-slider" id="rooms-slider">
+  <div class="rooms__slider-wrap">
+    <div class="rooms__track" id="roomsTrack">
 
-      <div class="room-card fade-in">
-        <div class="room-card-img">
-          <img src="https://picsum.photos/seed/room-heer/900/500" alt="Heer van Myrlaer" loading="lazy">
+      <!-- Row 1 -->
+      <div class="rooms__row">
+        <!-- Card Heer van Miyrlaer -->
+        <div class="room-card">
+          <p class="room-card__label">ZAAL 01</p>
+          <h3 class="room-card__name">Heer van Miyrlaer</h3>
+          <p class="room-card__desc">Zoekt u een intieme locatie voor een kleine bijeenkomst, brainstormsessie of privédiner? Dan zijn Heer van Miyrlaer 1, 2 of 3 ideaal. Deze zalen bieden volop daglicht voor optimale concentratie en een prachtig uitzicht op het groene landschap naast het hotel.</p>
+          <ul class="room-card__facilities">
+            <li><span class="check-sm">✓</span>Daglicht</li>
+            <li><span class="check-sm">✓</span>WiFi</li>
+            <li><span class="check-sm">✓</span>Beamer</li>
+            <li><span class="check-sm">✓</span>Airco</li>
+            <li><span class="check-sm">✓</span>Flip-over met schrijfmateriaal</li>
+            <li><span class="check-sm">✓</span>Geluidsinstallatie</li>
+          </ul>
+          <div class="room-card__capacity-sep"></div>
+          <div class="room-card__capacity">
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="10" rx="1"/><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg>
+              <span>Boardroom</span>
+              <strong>10</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v4M8 7H4v10h16V7h-4M8 7h8"/></svg>
+              <span>U-vorm</span>
+              <strong>24</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              <span>School</span>
+              <strong>28</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l9-14 9 14H3z"/></svg>
+              <span>Theater</span>
+              <strong>48</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+              <span>Diner</span>
+              <strong>50</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Receptie</span>
+              <strong>60</strong>
+            </div>
+          </div>
+          <div class="room-card__btns">
+            <a href="#" class="btn btn--gold">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Neem contact op</a>
+          </div>
         </div>
-        <div class="room-card-body">
-          <h3 class="room-card-title">Heer van Myrlaer</h3>
-          <div class="room-specs">
-            <div class="room-spec">
-              <span class="room-spec-val">120</span>
-              <span class="room-spec-label">Theater</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">40</span>
-              <span class="room-spec-label">U-opstelling</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">80</span>
-              <span class="room-spec-label">Diner</span>
-            </div>
-          </div>
-          <div class="room-setups">
-            <span class="room-setup-tag">Daglicht</span>
-            <span class="room-setup-tag">Beamer</span>
-            <span class="room-setup-tag">Flip-over</span>
-            <span class="room-setup-tag">Airconditioning</span>
-            <span class="room-setup-tag">WiFi</span>
-            <span class="room-setup-tag">Geluidsinstallatie</span>
-          </div>
-          <div class="room-card-actions">
-            <a href="#contact" class="btn btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn btn-outline">Meer info</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="room-card fade-in" style="transition-delay: 0.1s;">
-        <div class="room-card-img">
-          <img src="https://picsum.photos/seed/room-huys/900/500" alt="Huys ter Horst" loading="lazy">
+        <!-- Foto midden -->
+        <div class="rooms__photo">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Vergaderzaal" loading="lazy">
         </div>
-        <div class="room-card-body">
-          <h3 class="room-card-title">Huys ter Horst</h3>
-          <div class="room-specs">
-            <div class="room-spec">
-              <span class="room-spec-val">200</span>
-              <span class="room-spec-label">Theater</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">60</span>
-              <span class="room-spec-label">U-opstelling</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">150</span>
-              <span class="room-spec-label">Diner</span>
-            </div>
-          </div>
-          <div class="room-setups">
-            <span class="room-setup-tag">Panoramisch uitzicht</span>
-            <span class="room-setup-tag">Beamer HD</span>
-            <span class="room-setup-tag">Videoconferentie</span>
-            <span class="room-setup-tag">Podium</span>
-            <span class="room-setup-tag">WiFi</span>
-            <span class="room-setup-tag">Breakout ruimtes</span>
-          </div>
-          <div class="room-card-actions">
-            <a href="#contact" class="btn btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn btn-outline">Meer info</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="room-card fade-in" style="transition-delay: 0.2s;">
-        <div class="room-card-img">
-          <img src="https://picsum.photos/seed/room-terpse/900/500" alt="Terpse Zaal" loading="lazy">
+        <!-- Card Huys ter Horst -->
+        <div class="room-card">
+          <p class="room-card__label">ZAAL 02</p>
+          <h3 class="room-card__name">Huys ter Horst</h3>
+          <p class="room-card__desc">De Stijlkamer Huys ter Horst biedt een prachtige traditionele setting voor bijeenkomsten. Met een open haard, kroonluchters en kandelaars creëert de zaal een warme en uitnodigende sfeer, perfect voor intieme diners, privéborreis en vergaderingen.</p>
+          <ul class="room-card__facilities">
+            <li><span class="check-sm">✓</span>Daglicht</li>
+            <li><span class="check-sm">✓</span>WiFi</li>
+            <li><span class="check-sm">✓</span>Beamer</li>
+            <li><span class="check-sm">✓</span>Airco</li>
+            <li><span class="check-sm">✓</span>Flip-over met schrijfmateriaal</li>
+            <li><span class="check-sm">✓</span>Geluidsinstallatie</li>
+          </ul>
+          <div class="room-card__capacity-sep"></div>
+          <div class="room-card__capacity">
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v4M8 7H4v10h16V7h-4M8 7h8"/></svg>
+              <span>U-vorm</span>
+              <strong>24</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="14" height="14" rx="1"/></svg>
+              <span>Carré</span>
+              <strong>28</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l9-14 9 14H3z"/></svg>
+              <span>Theater</span>
+              <strong>48</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v6M18 2v6M2 10h20M2 18h20M6 22v-4M18 22v-4"/></svg>
+              <span>Cabaret</span>
+              <strong>32</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              <span>School</span>
+              <strong>24</strong>
+            </div>
+            <div class="cap-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg>
+              <span>Diner</span>
+              <strong>48</strong>
+            </div>
+          </div>
+          <div class="room-card__btns">
+            <a href="#" class="btn btn--gold">Vraag offerte aan</a>
+            <a href="#" class="btn btn--outline-gold">Neem contact op</a>
+          </div>
         </div>
-        <div class="room-card-body">
-          <h3 class="room-card-title">Terpse Zaal</h3>
-          <div class="room-specs">
-            <div class="room-spec">
-              <span class="room-spec-val">50</span>
-              <span class="room-spec-label">Theater</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">24</span>
-              <span class="room-spec-label">U-opstelling</span>
-            </div>
-            <div class="room-spec">
-              <span class="room-spec-val">40</span>
-              <span class="room-spec-label">Diner</span>
-            </div>
-          </div>
-          <div class="room-setups">
-            <span class="room-setup-tag">Daglicht</span>
-            <span class="room-setup-tag">Beamer</span>
-            <span class="room-setup-tag">Airconditioning</span>
-            <span class="room-setup-tag">WiFi</span>
-            <span class="room-setup-tag">Terras toegang</span>
-          </div>
-          <div class="room-card-actions">
-            <a href="#contact" class="btn btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn btn-outline">Meer info</a>
-          </div>
-        </div>
-      </div>
+      </div><!-- /.rooms__row -->
 
-    </div>
-  </div>
+    </div><!-- /.rooms__track -->
+  </div><!-- /.rooms__slider-wrap -->
 
-  <div class="slider-nav">
-    <button class="slider-btn" id="rooms-prev" aria-label="Vorige">&#8592;</button>
-    <div class="slider-dots" id="rooms-dots"></div>
-    <button class="slider-btn" id="rooms-next" aria-label="Volgende">&#8594;</button>
+  <div class="slider-controls">
+    <button class="slider-btn" id="roomsPrev" aria-label="Vorige">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8l8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="slider-counter" id="roomsCounter">1/4</span>
+    <button class="slider-btn" id="roomsNext" aria-label="Volgende">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1 1l8 7-8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
 </section>
 
 <!-- ============================================================
-     BREAKS & FACILITEITEN
+     SECTIE 8: BREAKS & FACILITEITEN
      ============================================================ -->
-<section class="breaks" id="breaks">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="section-label">Activiteiten</div>
-      <h2 class="section-title dark">Breaks &amp; Faciliteiten</h2>
+<section class="breaks">
+  <div class="breaks__header fade-in">
+    <p class="label label--gold-sm">ACTIVITEITEN</p>
+    <h2 class="section-title section-title--white">Breaks &amp; Faciliteiten</h2>
+    <p class="section-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <div class="breaks__filters">
+    <button class="filter-btn filter-btn--active">Alle breaks &amp; faciliteiten</button>
+    <button class="filter-btn">Actief</button>
+    <button class="filter-btn">Cultuur</button>
+    <button class="filter-btn">Seizoen</button>
+  </div>
+
+  <div class="breaks__grid">
+    <div class="activity-card fade-in">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80" alt="Wandelen naar de dierenweide" loading="lazy">
+      <div class="activity-card__overlay">
+        <p class="activity-card__cat">Actief</p>
+        <h3 class="activity-card__title">Wandelen naar de dierenweide</h3>
+        <p class="activity-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <div class="activity-card__btns">
+          <a href="#" class="btn btn--gold">Boek activiteit</a>
+          <a href="#" class="btn btn--outline-white">Meer info</a>
+        </div>
+      </div>
     </div>
 
-    <div class="filter-tabs fade-in">
-      <button class="filter-tab active" data-filter="alle">Alle</button>
-      <button class="filter-tab" data-filter="actief">Actief</button>
-      <button class="filter-tab" data-filter="cultuur">Cultuur</button>
-      <button class="filter-tab" data-filter="seizoen">Seizoen</button>
+    <div class="activity-card fade-in">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Dagje uit Horst aan de Maas" loading="lazy">
+      <div class="activity-card__overlay">
+        <p class="activity-card__cat">Cultuur</p>
+        <h3 class="activity-card__title">Dagje uit Horst aan de Maas</h3>
+        <p class="activity-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <div class="activity-card__btns">
+          <a href="#" class="btn btn--gold">Boek activiteit</a>
+          <a href="#" class="btn btn--outline-white">Meer info</a>
+        </div>
+      </div>
     </div>
 
-    <div class="breaks-grid">
-      <div class="break-card fade-in" data-cat="actief">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/teambuilding1/600/400" alt="Teambuilding buiten" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Actief</div>
-          <div class="break-card-title">Outdoor teambuilding</div>
-          <p class="break-card-desc">Geef uw team een energieboost met onze outdoor activiteiten in het prachtige Limburgse landschap.</p>
-        </div>
-      </div>
-      <div class="break-card fade-in" style="transition-delay: 0.06s;" data-cat="actief">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/wellness-pool/600/400" alt="Zwembad & wellness" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Actief</div>
-          <div class="break-card-title">Zwembad &amp; Wellness</div>
-          <p class="break-card-desc">Ontspan in ons verwarmde zwembad of de sauna — de perfecte beloning na een intensieve vergaderdag.</p>
-        </div>
-      </div>
-      <div class="break-card fade-in" style="transition-delay: 0.12s;" data-cat="cultuur">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/winery-tour/600/400" alt="Wijnproeverij" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Cultuur</div>
-          <div class="break-card-title">Wijnproeverij</div>
-          <p class="break-card-desc">Verfijn uw paleis met een begeleide wijnproeverij — ideaal als afsluiting van een succesvolle dag.</p>
-        </div>
-      </div>
-      <div class="break-card fade-in" style="transition-delay: 0.18s;" data-cat="cultuur">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/cooking-class/600/400" alt="Kookworkshop" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Cultuur</div>
-          <div class="break-card-title">Kookworkshop</div>
-          <p class="break-card-desc">Samen koken, samen lachen. Onze chef begeleidt uw team bij een heerlijke hands-on kookworkshop.</p>
-        </div>
-      </div>
-      <div class="break-card fade-in" style="transition-delay: 0.24s;" data-cat="seizoen">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/cycling-limburg/600/400" alt="Fietstocht" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Seizoen</div>
-          <div class="break-card-title">Begeleide fietstocht</div>
-          <p class="break-card-desc">Verken de prachtige Limburgse omgeving per fiets — perfect voor teambuilding en fresh air.</p>
-        </div>
-      </div>
-      <div class="break-card fade-in" style="transition-delay: 0.30s;" data-cat="seizoen">
-        <div class="break-card-img">
-          <img src="https://picsum.photos/seed/garden-walk/600/400" alt="Tuinwandeling" loading="lazy">
-        </div>
-        <div class="break-card-body">
-          <div class="break-card-cat">Seizoen</div>
-          <div class="break-card-title">Natuur & Wandeling</div>
-          <p class="break-card-desc">Kom tot rust tijdens een geleide wandeling door onze groene omgeving aan het water.</p>
+    <div class="activity-card fade-in">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Diner arrangement" loading="lazy">
+      <div class="activity-card__overlay">
+        <p class="activity-card__cat">Seizoen</p>
+        <h3 class="activity-card__title">Seizoensgebonden diner</h3>
+        <p class="activity-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <div class="activity-card__btns">
+          <a href="#" class="btn btn--gold">Boek activiteit</a>
+          <a href="#" class="btn btn--outline-white">Meer info</a>
         </div>
       </div>
     </div>
@@ -428,191 +503,253 @@
 </section>
 
 <!-- ============================================================
-     ANDERE ARRANGEMENTEN
+     SECTIE 9: ANDERE ARRANGEMENTEN
      ============================================================ -->
-<section class="arrangementen" id="arrangementen">
-  <div class="section-header fade-in">
-    <div class="section-label" style="color: var(--gold);">Meer bij Parkhotel</div>
-    <h2 class="section-title">Andere arrangementen</h2>
+<section class="arrangements">
+  <div class="arrangements__header fade-in">
+    <h2 class="section-title section-title--white">Andere arrangementen</h2>
   </div>
 
-  <div class="arr-slider">
-    <div class="arr-card fade-in">
-      <img src="https://picsum.photos/seed/feest-party/400/600" alt="Feesten & Partijen" loading="lazy">
-      <div class="arr-card-title">Feesten &amp; Partijen</div>
+  <div class="arrangements__grid">
+    <!-- Tekst card -->
+    <div class="arr-card arr-card--text">
+      <h3 class="arr-card__title">Lorem<br>ipsum</h3>
+      <p class="arr-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <a href="#" class="btn btn--outline-gold">Neem contact op</a>
     </div>
-    <div class="arr-card fade-in" style="transition-delay: 0.08s;">
-      <img src="https://picsum.photos/seed/wedding-flowers/400/600" alt="Bruiloften" loading="lazy">
-      <div class="arr-card-title">Bruiloften</div>
-    </div>
-    <div class="arr-card fade-in" style="transition-delay: 0.16s;">
-      <img src="https://picsum.photos/seed/condolences-quiet/400/600" alt="Condoleances" loading="lazy">
-      <div class="arr-card-title">Condoleances</div>
-    </div>
-    <div class="arr-card fade-in" style="transition-delay: 0.24s;">
-      <img src="https://picsum.photos/seed/bijeenkomst-hall/400/600" alt="Bijeenkomsten" loading="lazy">
-      <div class="arr-card-title">Bijeenkomsten</div>
-    </div>
-    <div class="arr-card fade-in" style="transition-delay: 0.32s;">
-      <img src="https://picsum.photos/seed/sports-training/400/600" alt="Trainingskamp" loading="lazy">
-      <div class="arr-card-title">Trainingskamp</div>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     SECOND TEXT + PHOTO (reversed)
-     ============================================================ -->
-<section class="text-photo">
-  <div class="text-photo-inner reverse">
-    <div class="text-photo-img">
-      <img src="https://picsum.photos/seed/hotel-restaurant/900/700" alt="Restaurant BØFF" loading="lazy">
+    <!-- Foto: Feesten en Partijen -->
+    <div class="arr-card arr-card--photo">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Feesten en Partijen" loading="lazy">
+      <div class="arr-card__overlay">
+        <h3>Feesten en Partijen</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+        <a href="#" class="btn btn--outline-white">Meer info</a>
+      </div>
     </div>
-    <div class="text-photo-content dark-bg">
-      <div class="section-label">Culinair</div>
-      <h2 class="fade-in">Genieten na een productieve dag</h2>
-      <p class="fade-in">Na een intensieve vergaderdag verdient uw team een heerlijk diner. Restaurant BØFF staat garant voor smakelijke gerechten met lokale ingrediënten — van een informele lunch tot een uitgebreid gala-diner.</p>
-      <p class="fade-in">Onze chef stelt graag een passend menu samen, afgestemd op uw wensen en dietaire behoeften.</p>
-      <a href="#contact" class="btn btn-gold fade-in">Meer over Restaurant BØFF</a>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     REVIEWS
-     ============================================================ -->
-<section class="reviews hex-bg" id="reviews">
-  <div class="container">
-    <div class="reviews-inner">
-      <div class="reviews-score-block fade-in">
-        <div class="reviews-source">Zoover</div>
-        <div class="reviews-badge">
-          <div class="reviews-score-num">4.1</div>
-          <div>
-            <div class="reviews-stars">★★★★☆</div>
-            <div class="reviews-count">1.596 beoordelingen</div>
+    <!-- Foto: Bruiloften -->
+    <div class="arr-card arr-card--photo">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Bruiloften" loading="lazy">
+      <div class="arr-card__overlay">
+        <div class="arr-card__slider-indicator">
+          <span>1/4</span>
+          <div class="arr-mini-btns">
+            <button aria-label="Vorige"><svg width="8" height="12" viewBox="0 0 8 12" fill="none"><path d="M7 1L1 6l6 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button aria-label="Volgende"><svg width="8" height="12" viewBox="0 0 8 12" fill="none"><path d="M1 1l6 5-6 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
         </div>
-        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Onze gasten waarderen onze locatie, service en faciliteiten al jaren consistent hoog.</p>
-        <a href="#" class="btn btn-outline">Alle reviews lezen</a>
+        <h3>Bruiloften</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+        <a href="#" class="btn btn--outline-white">Meer info</a>
       </div>
+    </div>
 
-      <div class="reviews-cards fade-in" style="transition-delay: 0.15s;">
-        <div class="review-card">
-          <div class="review-meta">
-            <span class="review-author">Familie Janssen</span>
-            <span class="review-date">Maart 2025</span>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Fantastische vergaderdag! De zaal was perfect ingericht, de catering was heerlijk en het team was uiterst professioneel. We komen zeker terug."</p>
-        </div>
-        <div class="review-card">
-          <div class="review-meta">
-            <span class="review-author">Mark de Vries — Sales Director</span>
-            <span class="review-date">Februari 2025</span>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Perfecte locatie voor ons jaarlijkse directie-overleg. Rust, ruimte en uitstekende faciliteiten. De accommodatie was top en het ontbijt geweldig."</p>
-        </div>
+    <!-- Foto: Condoleances -->
+    <div class="arr-card arr-card--photo">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" alt="Condoleances" loading="lazy">
+      <div class="arr-card__overlay">
+        <h3>Condo&shy;leances</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eumi</p>
+        <a href="#" class="btn btn--outline-white">Meer info</a>
+      </div>
+    </div>
+
+    <!-- Foto: Bijeenkomsten -->
+    <div class="arr-card arr-card--photo">
+      <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=80" alt="Bijeenkomsten" loading="lazy">
+      <div class="arr-card__overlay">
+        <h3>Bijeen&shy;komsten</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eumi</p>
+        <a href="#" class="btn btn--outline-white">Meer info</a>
+      </div>
+    </div>
+
+    <!-- Foto: Trainingskamp -->
+    <div class="arr-card arr-card--photo">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Trainingskamp" loading="lazy">
+      <div class="arr-card__overlay">
+        <h3>Trainingskamp</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam</p>
+        <a href="#" class="btn btn--outline-white">Meer info</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CONTACT CTA
+     SECTIE 10: REVIEWS
      ============================================================ -->
-<section class="contact-cta" id="contact">
-  <div class="contact-cta-inner">
-    <div class="contact-cta-img">
-      <img src="https://picsum.photos/seed/hotel-entrance/900/600" alt="Parkhotel Horst" loading="lazy">
-    </div>
-    <div class="contact-cta-content">
-      <div class="section-label">Contact</div>
-      <h2 class="fade-in">Wilt u meer weten?</h2>
-      <p class="fade-in">Neem contact op met ons eventteam voor een vrijblijvende offerte of een rondleiding. Wij denken graag met u mee over de perfecte invulling van uw bijeenkomst.</p>
-      <div class="contact-links fade-in">
-        <a href="tel:+31774641000" class="contact-link">
-          <div class="contact-link-icon">📞</div>
-          077 464 1000
-        </a>
-        <a href="mailto:info@parkhotelhorst.nl" class="contact-link">
-          <div class="contact-link-icon">✉️</div>
-          info@parkhotelhorst.nl
-        </a>
-        <a href="#" class="contact-link">
-          <div class="contact-link-icon">📍</div>
-          Terpseweg 2, 5961 NH Horst
-        </a>
+<section class="reviews">
+  <div class="reviews__slider-wrap">
+    <div class="reviews__track" id="reviewsTrack">
+
+      <!-- Card 1: Intro -->
+      <div class="review-card review-card--intro">
+        <h2 class="review-card__title">Reviews</h2>
+        <p class="review-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet</p>
+        <div class="review-card__rating">
+          <span class="review-card__score">4.1</span>
+          <div class="review-stars">
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#e0e0e0"/></svg>
+          </div>
+          <span class="review-card__label">Very good | <a href="#">1.596 reviews</a></span>
+        </div>
+        <a href="#" class="btn btn--green">Bekijk alle reviews</a>
       </div>
+
+      <!-- Review card 2 -->
+      <div class="review-card review-card--guest">
+        <div class="review-card__photo">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Hotelkamer" loading="lazy">
+        </div>
+        <div class="review-card__content">
+          <h4>John Janssen</h4>
+          <p class="review-card__via">10-01-2025 via <span class="zoover-text">zoo<em>Ver</em></span></p>
+          <div class="review-stars review-stars--sm">
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#e0e0e0"/></svg>
+          </div>
+          <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet"</blockquote>
+          <p class="review-card__discover">Ontdek zelf de ervaring van John</p>
+          <a href="#" class="btn btn--outline-gold">Boek dezelfde ervaring</a>
+        </div>
+      </div>
+
+      <!-- Review card 3 -->
+      <div class="review-card review-card--guest">
+        <div class="review-card__photo">
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&q=80" alt="Hotelkamer" loading="lazy">
+        </div>
+        <div class="review-card__content">
+          <h4>Martine Klok</h4>
+          <p class="review-card__via">10-01-2025 via <span class="zoover-text">zoo<em>Ver</em></span></p>
+          <div class="review-stars review-stars--sm">
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#c8973a"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,2 12.9,7.6 19,8.5 14.5,13 15.6,19 10,16.1 4.4,19 5.5,13 1,8.5 7.1,7.6" fill="#e0e0e0"/></svg>
+          </div>
+          <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet"</blockquote>
+          <p class="review-card__discover">Ontdek zelf de ervaring van John</p>
+          <a href="#" class="btn btn--outline-gold">Boek dezelfde ervaring</a>
+        </div>
+      </div>
+
+    </div><!-- /.reviews__track -->
+  </div><!-- /.reviews__slider-wrap -->
+
+  <div class="slider-controls">
+    <button class="slider-btn" id="reviewsPrev" aria-label="Vorige">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8l8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="slider-counter" id="reviewsCounter">1/4</span>
+    <button class="slider-btn" id="reviewsNext" aria-label="Volgende">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M1 1l8 7-8 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTIE 11: CONTACT
+     ============================================================ -->
+<section class="contact-section">
+  <div class="contact-section__inner">
+    <div class="contact-section__photo">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80" alt="Receptie Parkhotel Horst" loading="lazy">
+    </div>
+    <div class="contact-section__card fade-in">
+      <h2 class="contact-section__title">Wilt u meer<br>weten?</h2>
+      <p class="contact-section__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <a href="mailto:info@parkhotelhortst.nl" class="contact-section__link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@parkhotelhortst.nl
+      </a>
+      <a href="tel:+31773976000" class="contact-section__link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8973a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12 19.79 19.79 0 0 1 1.65 3.41 2 2 0 0 1 3.62 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.84-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.57 16z"/></svg>
+        077 397 6000
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     FOOTER
+     SECTIE 12: FOOTER
      ============================================================ -->
 <footer class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div>
-        <div class="footer-logo">Parkhotel <span>|</span> Horst</div>
-        <div class="footer-address">
-          Terpseweg 2<br>
-          5961 NH Horst<br>
-          <a href="mailto:info@parkhotelhorst.nl">info@parkhotelhorst.nl</a><br>
-          <a href="tel:+31774641000">077 464 1000</a>
-        </div>
-        <a href="#contact" class="btn btn-gold" style="font-size: 11px; padding: 10px 20px;">Zoek en boek</a>
-        <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Facebook">f</a>
-          <a href="#" class="footer-social" aria-label="Instagram">ig</a>
-          <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Hotel</h4>
-        <ul>
-          <li><a href="#">Over ons</a></li>
-          <li><a href="#">Faciliteiten</a></li>
-          <li><a href="#">Omgeving</a></li>
-          <li><a href="#">Nieuws</a></li>
-          <li><a href="#">Vacatures</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kamers</h4>
-        <ul>
-          <li><a href="#">Standaard kamer</a></li>
-          <li><a href="#">Superior kamer</a></li>
-          <li><a href="#">Junior suite</a></li>
-          <li><a href="#">Suite</a></li>
-          <li><a href="#">Arrangementen</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Vergaderen</h4>
-        <ul>
-          <li><a href="#vergaderen">Vergaderen</a></li>
-          <li><a href="#zalen">Vergaderzalen</a></li>
-          <li><a href="#scenarios">Pakketten</a></li>
-          <li><a href="#">Bruiloften</a></li>
-          <li><a href="#contact">Offerte aanvragen</a></li>
-        </ul>
-      </div>
+  <div class="footer__main">
+    <div class="footer__brand">
+      <div class="footer__stars">★★★★</div>
+      <div class="footer__logo-name">Parkhotel Horst</div>
+      <address class="footer__address">
+        Tienrayseweg 2, 5961 NL Horst<br>
+        +31773976000<br>
+        info@parkhotelhorst.nl
+      </address>
+      <a href="#" class="btn btn--gold footer__book-btn">Boek nu</a>
+    </div>
+
+    <div class="footer__nav-col">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#">Hotel</a></li>
+        <li><a href="#">Restaurant in Horst — BØFF</a></li>
+        <li><a href="#">Wellness en Faciliteiten</a></li>
+        <li><a href="#">Evenementen</a></li>
+        <li><a href="#">Omgeving</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__nav-col">
+      <h4>Kamers</h4>
+      <ul>
+        <li><a href="#">Comfort kamer</a></li>
+        <li><a href="#">Deluxe kamer</a></li>
+        <li><a href="#">Junior Suite</a></li>
+        <li><a href="#">Suite</a></li>
+        <li><a href="#">Torensuite</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__nav-col">
+      <h4>Socials</h4>
+      <ul>
+        <li>
+          <a href="#" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer__social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <span>&copy; 2025 Parkhotel Horst — Alle rechten voorbehouden</span>
-      <span>
-        <a href="#" style="color: var(--text-muted);">Privacy</a>
-        &nbsp;·&nbsp;
-        <a href="#" style="color: var(--text-muted);">Cookies</a>
-        &nbsp;·&nbsp;
-        <a href="#" style="color: var(--text-muted);">Algemene voorwaarden</a>
-      </span>
-    </div>
+
+  <div class="footer__bottom">
+    <span>© Parkhotel Horst 2025</span>
+    <nav class="footer__bottom-nav">
+      <a href="#">Contact</a>
+      <a href="#">Over ons</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Sitemap</a>
+      <a href="#">FAQ</a>
+      <a href="#">Vacatures</a>
+    </nav>
+    <a href="#" class="btn btn--outline-dark">BOOK A TABLE</a>
   </div>
 </footer>
 
