@@ -74,16 +74,16 @@ ul { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SLIDE — exact 100% van de wrapper-inner breedte
-   De volgende slide steekt 24px + stukje uit rechts
+   SLIDE — 2 kolommen: tekst links | foto rechts
 ═══════════════════════════════════════════════════════════ */
 .vz-slide {
   min-width: 100%;
   width: 100%;
   flex-shrink: 0;
   display: grid;
-  grid-template-columns: 1fr 470px 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: stretch;
+  min-height: 600px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -284,10 +284,9 @@ ul { list-style: none; }
     grid-template-rows: auto auto auto;
   }
 
-  /* Volgorde op mobile: kaart-links boven, foto midden, kaart-rechts onder */
-  .vz-card:first-child { order: 1; }
-  .vz-photo           { order: 2; min-height: 260px; }
-  .vz-card:last-child { order: 3; }
+  /* Volgorde op mobile: tekst boven, foto onder */
+  .vz-card  { order: 1; }
+  .vz-photo { order: 2; min-height: 260px; }
 
   .vz-card { padding: 32px 20px 32px; }
   .vz-card-title { font-size: 28px; }
@@ -320,10 +319,10 @@ ul { list-style: none; }
   <div class="vz-slider-wrap">
     <div class="vz-slider" id="vzSlider">
 
-      <!-- ══ SLIDE 1 ══════════════════════════════════════════ -->
+      <!-- ══ SLIDE 1: Heer van Miyrlaer ══════════════════════ -->
       <div class="vz-slide">
 
-        <!-- Kaart links: Heer van Miyrlaer -->
+        <!-- Kaart links -->
         <div class="vz-card">
           <div class="vz-card-title">Heer van Miyrlaer</div>
           <p class="vz-card-desc">
@@ -476,12 +475,15 @@ ul { list-style: none; }
           </div>
         </div>
 
-        <!-- Foto midden -->
+        <!-- Foto rechts -->
         <div class="vz-photo">
           <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800&q=80" alt="Vergaderzaal Heer van Miyrlaer">
         </div>
 
-        <!-- Kaart rechts: Huys ter Horst -->
+      </div><!-- /slide 1 -->
+
+      <!-- ══ SLIDE 2: Huys ter Horst ══════════════════════════ -->
+      <div class="vz-slide">
         <div class="vz-card">
           <div class="vz-card-title">Huys ter Horst</div>
           <p class="vz-card-desc">
@@ -593,9 +595,14 @@ ul { list-style: none; }
           </div>
         </div>
 
-      </div><!-- /slide 1 -->
+        <!-- Foto rechts slide 2 -->
+        <div class="vz-photo">
+          <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?w=800&q=80" alt="Huys ter Horst">
+        </div>
 
-      <!-- ══ SLIDE 2 ══════════════════════════════════════════ -->
+      </div><!-- /slide 2 -->
+
+      <!-- ══ SLIDE 3 ══════════════════════════════════════════ -->
       <div class="vz-slide">
         <div class="vz-card">
           <div class="vz-card-title">Terpse Zaal</div>
@@ -689,10 +696,15 @@ ul { list-style: none; }
           </div>
         </div>
 
+        <!-- Foto rechts slide 3 -->
         <div class="vz-photo">
           <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&q=80" alt="Terpse Zaal">
         </div>
 
+      </div><!-- /slide 3 -->
+
+      <!-- ══ SLIDE 4: Horster Zaal ════════════════════════════ -->
+      <div class="vz-slide">
         <div class="vz-card">
           <div class="vz-card-title">Horster Zaal</div>
           <p class="vz-card-desc">
@@ -766,14 +778,20 @@ ul { list-style: none; }
             <a href="#" class="btn-outline">Neem contact op</a>
           </div>
         </div>
-      </div><!-- /slide 2 -->
+
+        <!-- Foto rechts slide 4 -->
+        <div class="vz-photo">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Horster Zaal">
+        </div>
+
+      </div><!-- /slide 4 -->
 
     </div><!-- /vz-slider -->
   </div><!-- /vz-slider-wrap -->
 
   <!-- SLIDER NAV -->
   <div class="vz-nav">
-    <span class="vz-counter" id="vzCounter">1/2</span>
+    <span class="vz-counter" id="vzCounter">1/4</span>
     <button class="vz-arrow" id="vzPrev" disabled>&#8592;</button>
     <button class="vz-arrow" id="vzNext">&#8594;</button>
   </div>
