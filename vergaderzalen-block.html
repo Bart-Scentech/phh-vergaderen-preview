@@ -26,6 +26,7 @@ ul { list-style: none; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='66' height='114'%3E%3Cpath d='M33 4 L62 21 L62 55 L33 72 L4 55 L4 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M33 76 L62 93 L62 127 L33 144 L4 127 L4 93 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M-33 4 L-4 21 L-4 55 L-33 72 L-62 55 L-62 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M99 4 L128 21 L128 55 L99 72 L70 55 L70 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3C/svg%3E");
   padding-top: 100px;
   padding-bottom: 60px;
+  /* padding-left/right komen uit de override hieronder */
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -56,8 +57,15 @@ ul { list-style: none; }
 ═══════════════════════════════════════════════════════════ */
 .vz-slider-wrap {
   overflow: hidden;
-  padding: 0 60px; /* spacing links en rechts */
+  /* geen padding hier — spacing via margin op sectie-niveau */
 }
+
+/* Outer container regelt de horizontale spacing */
+.vz-section {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
 .vz-slider {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
@@ -68,10 +76,11 @@ ul { list-style: none; }
 ═══════════════════════════════════════════════════════════ */
 .vz-slide {
   min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr 470px 1fr;
   align-items: stretch;
-  gap: 0; /* kaarten en foto sluiten naadloos op elkaar */
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -219,7 +228,7 @@ ul { list-style: none; }
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  padding: 22px 60px 0; /* matcht slider-wrap padding */
+  padding: 22px 0 0; /* sectie heeft zelf al de padding */
 }
 .vz-counter {
   font-family: 'Lato', sans-serif;
@@ -261,12 +270,14 @@ ul { list-style: none; }
   .vz-header { padding-bottom: 48px; }
   .vz-header h2 { font-size: 34px; }
 
-  /* Slider wrap: ook op mobile horizontaal, padding links/rechts kleiner */
-  .vz-slider-wrap { padding: 0 20px; }
+  /* Sectie-padding kleiner op mobile */
+  .vz-section { padding-left: 20px; padding-right: 20px; }
 
   /* Elke slide: HORIZONTALE slider blijft — slide wordt single-column */
   .vz-slide {
-    min-width: 100%;           /* cruciaal: slide neemt exact 100% van slider-wrap in */
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
   }
