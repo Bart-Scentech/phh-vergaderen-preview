@@ -3,670 +3,794 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Onze vergaderzalen — blok preview</title>
+  <title>Onze vergaderzalen — Parkhotel Horst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
-    body { font-family: 'Lato', sans-serif; background: #1c1c1c; }
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
 
-    /* ── Vergaderzalen blok ─────────────────────────────── */
-    .vz {
-      background-color: #1c1c1c;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104'%3E%3Cpath d='M30 4 L56 19 L56 49 L30 64 L4 49 L4 19 Z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.07'/%3E%3Cpath d='M30 64 L56 79 L56 109 L30 124 L4 109 L4 79 Z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.07'/%3E%3Cpath d='M-30 4 L-4 19 L-4 49 L-30 64 L-56 49 L-56 19 Z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.07'/%3E%3Cpath d='M90 4 L116 19 L116 49 L90 64 L64 49 L64 19 Z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.07'/%3E%3C/svg%3E");
-      padding: 90px 0 0;
-    }
+/* ═══════════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: #1c1c1c; }
+img { display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-    .vz-header {
-      text-align: center;
-      padding: 0 24px 70px;
-    }
-    .vz-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 24px;
-      line-height: 1.15;
-    }
-    .vz-header p {
-      color: rgba(255,255,255,0.65);
-      font-size: 15px;
-      line-height: 1.75;
-      max-width: 640px;
-      margin: 0 auto;
-    }
+/* ═══════════════════════════════════════════════════════════
+   SECTIE WRAPPER — donkere hex achtergrond
+═══════════════════════════════════════════════════════════ */
+.vz-section {
+  background-color: #1c1c1c;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='66' height='114'%3E%3Cpath d='M33 4 L62 21 L62 55 L33 72 L4 55 L4 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M33 76 L62 93 L62 127 L33 144 L4 127 L4 93 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M-33 4 L-4 21 L-4 55 L-33 72 L-62 55 L-62 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3Cpath d='M99 4 L128 21 L128 55 L99 72 L70 55 L70 21 Z' fill='none' stroke='%23ffffff' stroke-width='0.6' opacity='0.07'/%3E%3C/svg%3E");
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
 
-    /* ── Slider wrap ───────────────────────────────────── */
-    .vz-slider-outer {
-      position: relative;
-      overflow: hidden;
-    }
-    .vz-slider {
-      display: flex;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      align-items: stretch;
-    }
+/* ═══════════════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════════════ */
+.vz-header {
+  text-align: center;
+  padding: 0 20px 80px;
+}
+.vz-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 28px;
+  line-height: 1.1;
+}
+.vz-header p {
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto;
+}
 
-    /* ── Slide: 1 slide = kaart + foto + kaart ─────────── */
-    .vz-slide {
-      display: grid;
-      grid-template-columns: 1fr 470px 1fr;
-      min-width: 100%;
-      align-items: stretch;
-    }
+/* ═══════════════════════════════════════════════════════════
+   SLIDER WRAPPER
+═══════════════════════════════════════════════════════════ */
+.vz-slider-wrap {
+  overflow: hidden;
+}
+.vz-slider {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
 
-    /* ── Cream kaart ───────────────────────────────────── */
-    .vz-card {
-      background: #f5efe3;
-      padding: 52px 48px 48px;
-      display: flex;
-      flex-direction: column;
-    }
+/* ═══════════════════════════════════════════════════════════
+   SLIDE — 3 kolommen: kaart | foto | kaart
+═══════════════════════════════════════════════════════════ */
+.vz-slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 470px 1fr;
+  align-items: stretch;
+}
 
-    .vz-card-label {
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #c8973a;
-      margin-bottom: 14px;
-    }
-    .vz-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #1c1c1c;
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
-    .vz-card-desc {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
+/* ═══════════════════════════════════════════════════════════
+   CREAM KAART
+═══════════════════════════════════════════════════════════ */
+.vz-card {
+  background: #f5efe3;
+  padding: 44px 44px 40px;
+  display: flex;
+  flex-direction: column;
+}
 
-    /* bullet lijst */
-    .vz-card-features {
-      margin-bottom: 28px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 20px;
-    }
-    .vz-card-features li {
-      font-size: 13.5px;
-      color: #333;
-      line-height: 1.5;
-      padding-left: 14px;
-      position: relative;
-    }
-    .vz-card-features li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #1c1c1c;
-      font-size: 14px;
-    }
+.vz-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #1c1c1c;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
 
-    /* capacity sectie */
-    .vz-capacity {
-      border-top: 1px solid rgba(0,0,0,0.12);
-      padding-top: 24px;
-      margin-bottom: 32px;
-      margin-top: auto;
-    }
-    .vz-capacity-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px 8px;
-    }
-    .vz-cap-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      text-align: center;
-    }
-    .vz-cap-item svg {
-      width: 32px;
-      height: 32px;
-      color: #1c1c1c;
-    }
-    .vz-cap-item-label {
-      font-size: 11px;
-      color: #555;
-      line-height: 1.3;
-    }
-    .vz-cap-item-label span {
-      display: block;
-      font-size: 10px;
-      color: #888;
-    }
+.vz-card-desc {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
 
-    /* knoppen */
-    .vz-card-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn-gold {
-      display: inline-block;
-      padding: 13px 28px;
-      background: #c8973a;
-      color: #fff;
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .btn-gold:hover { background: #a97c2e; }
-    .btn-outline-dark {
-      display: inline-block;
-      padding: 12px 28px;
-      background: transparent;
-      color: #1c1c1c;
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border: 1.5px solid #1c1c1c;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .btn-outline-dark:hover { background: #1c1c1c; color: #fff; }
+/* ── bullet lijst ── */
+.vz-card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 28px;
+  margin-bottom: 32px;
+}
+.vz-card-list li {
+  font-size: 13.5px;
+  color: #333;
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+.vz-card-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+}
 
-    /* ── Foto middenkolom ──────────────────────────────── */
-    .vz-photo {
-      position: relative;
-      overflow: hidden;
-      min-height: 500px;
-    }
-    .vz-photo img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* ── capacity ── */
+.vz-capacity {
+  border-top: 1px solid rgba(0,0,0,0.13);
+  padding-top: 28px;
+  margin-bottom: 36px;
+  margin-top: auto;
+}
+.vz-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 20px;
+  column-gap: 4px;
+}
+.vz-cap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+.vz-cap-item svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.vz-cap-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+}
+.vz-cap-max {
+  font-size: 10.5px;
+  color: #777;
+  line-height: 1.2;
+}
 
-    /* ── Slider nav ────────────────────────────────────── */
-    .vz-nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 12px;
-      padding: 20px 48px 40px;
-    }
-    .vz-counter {
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 1px;
-      margin-right: 4px;
-    }
-    .vz-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      background: transparent;
-      color: #fff;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      line-height: 1;
-    }
-    .vz-btn:hover {
-      border-color: #c8973a;
-      color: #c8973a;
-    }
-    .vz-btn:disabled {
-      opacity: 0.3;
-      cursor: default;
-    }
+/* ── knoppen ── */
+.vz-card-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn-gold {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #c8973a;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-gold:hover { background: #a87a28; }
+.btn-outline {
+  display: inline-block;
+  padding: 13px 28px;
+  background: transparent;
+  color: #1c1c1c;
+  font-family: 'Lato', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 1.5px solid #1c1c1c;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-outline:hover { background: #1c1c1c; color: #fff; }
 
-    /* ── MOBILE ────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .vz { padding: 60px 0 0; }
-      .vz-header { padding: 0 20px 48px; }
-      .vz-header h2 { font-size: 34px; }
-      .vz-header p { font-size: 14px; }
+/* ═══════════════════════════════════════════════════════════
+   FOTO KOLOM
+═══════════════════════════════════════════════════════════ */
+.vz-photo {
+  position: relative;
+  overflow: hidden;
+}
+.vz-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-      .vz-slide {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-      }
+/* ═══════════════════════════════════════════════════════════
+   SLIDER NAV — rechtsonder "1/4 < >"
+═══════════════════════════════════════════════════════════ */
+.vz-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 44px 0;
+}
+.vz-counter {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1px;
+  margin-right: 6px;
+}
+.vz-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+}
+.vz-arrow:hover:not(:disabled) {
+  border-color: #c8973a;
+  color: #c8973a;
+}
+.vz-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
 
-      /* Mobile volgorde: kaart-links boven, foto midden, kaart-rechts onder */
-      .vz-card:first-child { order: 1; }
-      .vz-photo { order: 2; min-height: 280px; }
-      .vz-card:last-child { order: 3; }
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — ≤ 860px
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .vz-section { padding-top: 64px; padding-bottom: 40px; }
+  .vz-header { padding-bottom: 48px; }
+  .vz-header h2 { font-size: 34px; }
 
-      .vz-card {
-        padding: 36px 24px 36px;
-      }
-      .vz-card h3 { font-size: 28px; }
-      .vz-card-features {
-        grid-template-columns: 1fr;
-      }
-      .vz-capacity-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px 6px;
-      }
-      .vz-nav { padding: 16px 20px 32px; }
-    }
+  /* Single kolom, volgorde: kaart-links → foto → kaart-rechts */
+  .vz-slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .vz-card:first-child { order: 1; }
+  .vz-photo           { order: 2; min-height: 260px; }
+  .vz-card:last-child { order: 3; }
 
-    @media (max-width: 480px) {
-      .vz-capacity-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+  .vz-card { padding: 32px 20px 32px; }
+  .vz-card-title { font-size: 28px; }
+  .vz-card-list { grid-template-columns: 1fr; }
+
+  .vz-cap-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .vz-nav { padding: 18px 20px 0; }
+}
+
+@media (max-width: 480px) {
+  .vz-cap-grid { grid-template-columns: repeat(3, 1fr); }
+  .vz-card-btns { flex-direction: column; }
+  .btn-gold, .btn-outline { text-align: center; }
+}
+
   </style>
 </head>
 <body>
 
-<!-- ============================================================
-     VERGADERZALEN BLOK
-     ============================================================ -->
-<section class="vz" id="vergaderzalen">
+<section class="vz-section">
 
-  <!-- Header -->
+  <!-- HEADER -->
   <div class="vz-header">
     <h2>Onze vergaderzalen</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 
-  <!-- Slider -->
-  <div class="vz-slider-outer">
+  <!-- SLIDER -->
+  <div class="vz-slider-wrap">
     <div class="vz-slider" id="vzSlider">
 
-      <!-- ── SLIDE 1: Heer van Miyrlaer ── -->
+      <!-- ══ SLIDE 1 ══════════════════════════════════════════ -->
       <div class="vz-slide">
-        <!-- Kaart links -->
+
+        <!-- Kaart links: Heer van Miyrlaer -->
         <div class="vz-card">
-          <div class="vz-card-label">Zaal 01</div>
-          <h3>Heer van Miyrlaer</h3>
-          <p class="vz-card-desc">Zoekt u een intieme locatie voor een kleine bijeenkomst, brainstormsessie of privédiner? Dan zijn Heer van Miyrlaer 1, 2 of 3 ideaal. Deze zalen bieden volop daglicht voor optimale concentratie en een prachtig uitzicht op het groene landschap naast het hotel. Geniet van de natuurlijke omgeving en kom tot rust.</p>
-          <ul class="vz-card-features">
+          <div class="vz-card-title">Heer van Miyrlaer</div>
+          <p class="vz-card-desc">
+            Zoekt u een intieme locatie voor een kleine bijeenkomst, brainstormsessie of privédiner? Dan zijn Heer van Miyrlaer 1, 2 of 3 ideaal. Deze zalen bieden volop daglicht voor optimale concentratie en een prachtig uitzicht op het groene landschap naast het hotel. Geniet van de natuurlijke omgeving en kom tot rust.
+          </p>
+          <ul class="vz-card-list">
             <li>Maximale capaciteit</li>
             <li>Flip-over met schrijfmateriaal</li>
             <li>16 personen per zaal</li>
             <li>Airconditioning</li>
-            <li>Oppervlakte: 80m2</li>
+            <li>Oppervlakte: 80m²</li>
             <li>Geluidsinstallatie</li>
             <li>Smart board</li>
-            <li></li>
+            <li>&nbsp;</li>
             <li>Gratis WiFi</li>
-            <li></li>
           </ul>
+
           <div class="vz-capacity">
-            <div class="vz-capacity-grid">
+            <div class="vz-cap-grid">
               <!-- Boardroom -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="10" width="24" height="14" rx="1"/>
-                  <line x1="10" y1="10" x2="10" y2="24"/>
-                  <line x1="16" y1="10" x2="16" y2="24"/>
-                  <line x1="22" y1="10" x2="22" y2="24"/>
-                  <circle cx="8" cy="7" r="2"/>
-                  <circle cx="16" cy="7" r="2"/>
-                  <circle cx="24" cy="7" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- rectangular table with chairs on sides -->
+                  <rect x="8" y="15" width="24" height="12" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <!-- chairs top -->
+                  <rect x="11" y="10" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="24" y="10" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <!-- chairs bottom -->
+                  <rect x="11" y="27" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="24" y="27" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Boardroom<span>(max. 10)</span></div>
+                <span class="vz-cap-name">Boardroom</span>
+                <span class="vz-cap-max">(max. 10)</span>
               </div>
               <!-- U-vorm -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 6 L6 22 Q6 26 10 26 L22 26 Q26 26 26 22 L26 6"/>
-                  <line x1="2" y1="6" x2="30" y2="6"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- U shape table -->
+                  <path d="M8 10 L8 26 Q8 32 14 32 L26 32 Q32 32 32 26 L32 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <!-- chairs outside U -->
+                  <rect x="4" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="32" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="14" y="34" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="22" y="34" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">U-vorm<span>(max. 24)</span></div>
+                <span class="vz-cap-name">U-vorm</span>
+                <span class="vz-cap-max">(max. 24)</span>
               </div>
               <!-- School -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="8" width="11" height="7" rx="1"/>
-                  <rect x="18" y="8" width="11" height="7" rx="1"/>
-                  <rect x="3" y="19" width="11" height="7" rx="1"/>
-                  <rect x="18" y="19" width="11" height="7" rx="1"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- rows of desks -->
+                  <rect x="4" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">School<span>(max. 28)</span></div>
+                <span class="vz-cap-name">School</span>
+                <span class="vz-cap-max">(max. 28)</span>
               </div>
               <!-- Theater -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 28 Q16 8 28 28"/>
-                  <line x1="4" y1="22" x2="28" y2="22"/>
-                  <line x1="6" y1="17" x2="26" y2="17"/>
-                  <circle cx="16" cy="5" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- screen top -->
+                  <rect x="8" y="6" width="24" height="3" rx="0.5" stroke="#222" stroke-width="1.4" fill="#222"/>
+                  <!-- rows of chairs -->
+                  <rect x="6" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Theater<span>(max. 48)</span></div>
+                <span class="vz-cap-name">Theater</span>
+                <span class="vz-cap-max">(max. 48)</span>
               </div>
-              <!-- Cabaret -->
+              <!-- Cabaret rij 1 -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="14" width="28" height="4" rx="1"/>
-                  <rect x="5" y="8" width="6" height="5" rx="1"/>
-                  <rect x="21" y="8" width="6" height="5" rx="1"/>
-                  <rect x="13" y="8" width="6" height="5" rx="1"/>
-                  <rect x="5" y="19" width="6" height="5" rx="1"/>
-                  <rect x="21" y="19" width="6" height="5" rx="1"/>
-                  <rect x="13" y="19" width="6" height="5" rx="1"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- cabaret: ronde tafels met stoelen -->
+                  <circle cx="13" cy="16" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="27" cy="16" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="13" cy="28" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="27" cy="28" r="5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">Cabaret<span>(max. 32)</span></div>
+                <span class="vz-cap-name">Cabaret</span>
+                <span class="vz-cap-max">(max. 32)</span>
               </div>
-              <!-- School 2e rij -->
+
+              <!-- rij 2 -->
+              <!-- School (2e) -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="8" width="11" height="7" rx="1"/>
-                  <rect x="18" y="8" width="11" height="7" rx="1"/>
-                  <rect x="3" y="19" width="11" height="7" rx="1"/>
-                  <rect x="18" y="19" width="11" height="7" rx="1"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">School<span>(max. 24)</span></div>
+                <span class="vz-cap-name">School</span>
+                <span class="vz-cap-max">(max. 24)</span>
               </div>
               <!-- Diner -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="16" cy="16" rx="12" ry="8"/>
-                  <line x1="8" y1="12" x2="8" y2="20"/>
-                  <line x1="16" y1="10" x2="16" y2="22"/>
-                  <line x1="24" y1="12" x2="24" y2="20"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- long banquet table -->
+                  <rect x="5" y="17" width="30" height="8" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <!-- chairs top row -->
+                  <rect x="7" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <!-- chairs bottom row -->
+                  <rect x="7" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Diner<span>(max. 48)</span></div>
+                <span class="vz-cap-name">Diner</span>
+                <span class="vz-cap-max">(max. 48)</span>
               </div>
               <!-- Receptie -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="10" cy="10" r="3"/>
-                  <circle cx="22" cy="10" r="3"/>
-                  <circle cx="16" cy="10" r="3"/>
-                  <circle cx="6" cy="20" r="3"/>
-                  <circle cx="16" cy="20" r="3"/>
-                  <circle cx="26" cy="20" r="3"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- scattered circles = standing reception -->
+                  <circle cx="11" cy="13" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="20" cy="10" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="29" cy="13" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="8"  cy="23" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="16" cy="26" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="24" cy="26" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="32" cy="22" r="3" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">Receptie<span>(max. 50)</span></div>
+                <span class="vz-cap-name">Receptie</span>
+                <span class="vz-cap-max">(max. 50)</span>
               </div>
             </div>
           </div>
+
           <div class="vz-card-btns">
-            <a href="#contact" class="btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn-outline-dark">Neem contact op</a>
+            <a href="#" class="btn-gold">Vraag offerte aan</a>
+            <a href="#" class="btn-outline">Neem contact op</a>
           </div>
         </div>
 
         <!-- Foto midden -->
         <div class="vz-photo">
-          <img src="https://picsum.photos/seed/boardroom-horst/800/900" alt="Vergaderzaal Heer van Miyrlaer">
+          <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800&q=80" alt="Vergaderzaal Heer van Miyrlaer">
         </div>
 
-        <!-- Kaart rechts (Huys ter Horst — gedeeltelijk zichtbaar) -->
+        <!-- Kaart rechts: Huys ter Horst -->
         <div class="vz-card">
-          <div class="vz-card-label">Zaal 02</div>
-          <h3>Huys ter Horst</h3>
-          <p class="vz-card-desc">De Stijlkamer Huys ter Horst biedt een prachtige traditionele setting voor bijeenkomsten. Met een open haard, kroonluchters en kandelaers creëert de zaal een warme en uitnodigende sfeer, perfect voor intieme diners, privéborrrels en vergaderingen. Het daglicht draagt bij aan een aangename werkomgeving, waardoor u zich optimaal kunt concentreren op uw taken.</p>
-          <ul class="vz-card-features">
+          <div class="vz-card-title">Huys ter Horst</div>
+          <p class="vz-card-desc">
+            De Stijlkamer Huys ter Horst biedt een prachtige traditionele setting voor bijeenkomsten. Met een open haard, kroonluchters en kandelaers creëert de zaal een warme en uitnodigende sfeer, perfect voor intieme diners, privéborrels en vergaderingen. Het daglicht draagt bij aan een aangename werkomgeving, waardoor u zich optimaal kunt concentreren op uw taken.
+          </p>
+          <ul class="vz-card-list">
             <li>Maximale capaciteit</li>
             <li>Flip-over met schrijfmateriaal</li>
             <li>16 personen per zaal</li>
             <li>Airconditioning</li>
-            <li>Oppervlakte: 80m2</li>
+            <li>Oppervlakte: 80m²</li>
             <li>Geluidsinstallatie</li>
             <li>Smart board</li>
-            <li></li>
+            <li>&nbsp;</li>
             <li>Gratis WiFi</li>
-            <li></li>
           </ul>
+
           <div class="vz-capacity">
-            <div class="vz-capacity-grid">
+            <div class="vz-cap-grid">
+              <!-- U-vorm -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 6 L6 22 Q6 26 10 26 L22 26 Q26 26 26 22 L26 6"/>
-                  <line x1="2" y1="6" x2="30" y2="6"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 10 L8 26 Q8 32 14 32 L26 32 Q32 32 32 26 L32 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  <rect x="4" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="32" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="14" y="34" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="22" y="34" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">U-vorm<span>(max. 24)</span></div>
+                <span class="vz-cap-name">U-vorm</span>
+                <span class="vz-cap-max">(max. 24)</span>
               </div>
+              <!-- Carré -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="16" cy="16" rx="12" ry="8"/>
-                  <line x1="8" y1="12" x2="8" y2="20"/>
-                  <line x1="16" y1="10" x2="16" y2="22"/>
-                  <line x1="24" y1="12" x2="24" y2="20"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- square table hollow -->
+                  <rect x="10" y="10" width="20" height="20" rx="1" stroke="#222" stroke-width="1.8" fill="none"/>
+                  <rect x="6" y="6" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.2"/>
+                  <rect x="30" y="6" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.2"/>
+                  <rect x="6" y="30" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.2"/>
+                  <rect x="30" y="30" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.2"/>
                 </svg>
-                <div class="vz-cap-item-label">Carré<span>(max. 28)</span></div>
+                <span class="vz-cap-name">Carré</span>
+                <span class="vz-cap-max">(max. 28)</span>
               </div>
+              <!-- Theater -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 28 Q16 8 28 28"/>
-                  <line x1="4" y1="22" x2="28" y2="22"/>
-                  <line x1="6" y1="17" x2="26" y2="17"/>
-                  <circle cx="16" cy="5" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="6" width="24" height="3" rx="0.5" stroke="#222" stroke-width="1.4" fill="#222"/>
+                  <rect x="6" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Theater<span>(max. 48)</span></div>
+                <span class="vz-cap-name">Theater</span>
+                <span class="vz-cap-max">(max. 48)</span>
               </div>
+              <!-- Cabaret -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="14" width="28" height="4" rx="1"/>
-                  <rect x="5" y="8" width="6" height="5" rx="1"/>
-                  <rect x="21" y="8" width="6" height="5" rx="1"/>
-                  <rect x="13" y="8" width="6" height="5" rx="1"/>
-                  <rect x="5" y="19" width="6" height="5" rx="1"/>
-                  <rect x="21" y="19" width="6" height="5" rx="1"/>
-                  <rect x="13" y="19" width="6" height="5" rx="1"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="13" cy="16" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="27" cy="16" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="13" cy="28" r="5" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="27" cy="28" r="5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">Cabaret<span>(max. 32)</span></div>
+                <span class="vz-cap-name">Cabaret</span>
+                <span class="vz-cap-max">(max. 32)</span>
               </div>
+              <!-- School -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="8" width="11" height="7" rx="1"/>
-                  <rect x="18" y="8" width="11" height="7" rx="1"/>
-                  <rect x="3" y="19" width="11" height="7" rx="1"/>
-                  <rect x="18" y="19" width="11" height="7" rx="1"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">School<span>(max. 24)</span></div>
+                <span class="vz-cap-name">School</span>
+                <span class="vz-cap-max">(max. 24)</span>
               </div>
+              <!-- Diner -->
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="10" width="24" height="14" rx="1"/>
-                  <line x1="10" y1="10" x2="10" y2="24"/>
-                  <line x1="16" y1="10" x2="16" y2="24"/>
-                  <line x1="22" y1="10" x2="22" y2="24"/>
-                  <circle cx="8" cy="7" r="2"/>
-                  <circle cx="16" cy="7" r="2"/>
-                  <circle cx="24" cy="7" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="17" width="30" height="8" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <rect x="7" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="7" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Diner<span>(max. 48)</span></div>
+                <span class="vz-cap-name">Diner</span>
+                <span class="vz-cap-max">(max. 48)</span>
               </div>
             </div>
           </div>
+
           <div class="vz-card-btns">
-            <a href="#contact" class="btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn-outline-dark">Neem contact op</a>
+            <a href="#" class="btn-gold">Vraag offerte aan</a>
+            <a href="#" class="btn-outline">Neem contact op</a>
           </div>
         </div>
-      </div><!-- /vz-slide 1 -->
 
-      <!-- ── SLIDE 2 (placeholder voor extra zalen) ── -->
+      </div><!-- /slide 1 -->
+
+      <!-- ══ SLIDE 2 ══════════════════════════════════════════ -->
       <div class="vz-slide">
         <div class="vz-card">
-          <div class="vz-card-label">Zaal 03</div>
-          <h3>Terpse Zaal</h3>
-          <p class="vz-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-          <ul class="vz-card-features">
+          <div class="vz-card-title">Terpse Zaal</div>
+          <p class="vz-card-desc">
+            De Terpse Zaal is onze grootste multifunctionele zaal, ideaal voor grote conferenties, productlanceringen en gala-diners. Met een oppervlakte van 350m² en state-of-the-art AV-apparatuur biedt deze zaal alles wat u nodig heeft voor een succesvol evenement.
+          </p>
+          <ul class="vz-card-list">
             <li>Maximale capaciteit</li>
             <li>Beamer HD</li>
-            <li>50 personen</li>
-            <li>Airconditioning</li>
-            <li>Oppervlakte: 120m2</li>
+            <li>200 personen</li>
+            <li>Videoconferentie</li>
+            <li>Oppervlakte: 350m²</li>
             <li>Geluidsinstallatie</li>
+            <li>Podium beschikbaar</li>
+            <li>Breakout ruimtes</li>
             <li>Gratis WiFi</li>
-            <li>Terras toegang</li>
           </ul>
           <div class="vz-capacity">
-            <div class="vz-capacity-grid">
+            <div class="vz-cap-grid">
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="10" width="24" height="14" rx="1"/>
-                  <circle cx="16" cy="7" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 10 L8 26 Q8 32 14 32 L26 32 Q32 32 32 26 L32 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  <rect x="4" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="32" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Boardroom<span>(max. 20)</span></div>
+                <span class="vz-cap-name">U-vorm</span>
+                <span class="vz-cap-max">(max. 60)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 6 L6 22 Q6 26 10 26 L22 26 Q26 26 26 22 L26 6"/>
-                  <line x1="2" y1="6" x2="30" y2="6"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="9" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="18" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="4" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
+                  <rect x="22" y="27" width="14" height="5" rx="0.5" stroke="#222" stroke-width="1.4"/>
                 </svg>
-                <div class="vz-cap-item-label">U-vorm<span>(max. 30)</span></div>
+                <span class="vz-cap-name">School</span>
+                <span class="vz-cap-max">(max. 100)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 28 Q16 8 28 28"/>
-                  <line x1="4" y1="22" x2="28" y2="22"/>
-                  <circle cx="16" cy="5" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="6" width="24" height="3" rx="0.5" fill="#222"/>
+                  <rect x="6" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="29" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Theater<span>(max. 80)</span></div>
+                <span class="vz-cap-name">Theater</span>
+                <span class="vz-cap-max">(max. 200)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="16" cy="16" rx="12" ry="8"/>
-                  <line x1="8" y1="12" x2="8" y2="20"/>
-                  <line x1="24" y1="12" x2="24" y2="20"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="17" width="30" height="8" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <rect x="7" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="7" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Diner<span>(max. 60)</span></div>
+                <span class="vz-cap-name">Diner</span>
+                <span class="vz-cap-max">(max. 150)</span>
+              </div>
+              <div class="vz-cap-item">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="11" cy="13" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="20" cy="10" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="29" cy="13" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="8"  cy="23" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="16" cy="26" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="24" cy="26" r="3" stroke="#222" stroke-width="1.4"/>
+                  <circle cx="32" cy="22" r="3" stroke="#222" stroke-width="1.4"/>
+                </svg>
+                <span class="vz-cap-name">Receptie</span>
+                <span class="vz-cap-max">(max. 250)</span>
               </div>
             </div>
           </div>
           <div class="vz-card-btns">
-            <a href="#contact" class="btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn-outline-dark">Neem contact op</a>
+            <a href="#" class="btn-gold">Vraag offerte aan</a>
+            <a href="#" class="btn-outline">Neem contact op</a>
           </div>
         </div>
 
         <div class="vz-photo">
-          <img src="https://picsum.photos/seed/conferenceroom2/800/900" alt="Terpse Zaal">
+          <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&q=80" alt="Terpse Zaal">
         </div>
 
         <div class="vz-card">
-          <div class="vz-card-label">Zaal 04</div>
-          <h3>Horster Zaal</h3>
-          <p class="vz-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <ul class="vz-card-features">
+          <div class="vz-card-title">Horster Zaal</div>
+          <p class="vz-card-desc">
+            De Horster Zaal is perfect voor middelgrote bijeenkomsten, seminars en trainingen. Met daglicht en een modern interieur biedt deze veelzijdige zaal alle comfort voor een productieve dag.
+          </p>
+          <ul class="vz-card-list">
             <li>Maximale capaciteit</li>
-            <li>Videoconferentie</li>
-            <li>200 personen</li>
-            <li>Podium beschikbaar</li>
-            <li>Oppervlakte: 350m2</li>
+            <li>Beamer + scherm</li>
+            <li>80 personen</li>
+            <li>Airconditioning</li>
+            <li>Oppervlakte: 160m²</li>
             <li>Geluidsinstallatie</li>
+            <li>Flip-over</li>
+            <li>Terras toegang</li>
             <li>Gratis WiFi</li>
-            <li>Breakout ruimtes</li>
           </ul>
           <div class="vz-capacity">
-            <div class="vz-capacity-grid">
+            <div class="vz-cap-grid">
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 6 L6 22 Q6 26 10 26 L22 26 Q26 26 26 22 L26 6"/>
-                  <line x1="2" y1="6" x2="30" y2="6"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="15" width="24" height="12" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <rect x="11" y="10" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="24" y="10" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="11" y="27" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="24" y="27" width="5" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">U-vorm<span>(max. 60)</span></div>
+                <span class="vz-cap-name">Boardroom</span>
+                <span class="vz-cap-max">(max. 20)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 28 Q16 8 28 28"/>
-                  <line x1="4" y1="22" x2="28" y2="22"/>
-                  <line x1="6" y1="17" x2="26" y2="17"/>
-                  <circle cx="16" cy="5" r="2"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 10 L8 26 Q8 32 14 32 L26 32 Q32 32 32 26 L32 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  <rect x="4" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="32" y="8" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Theater<span>(max. 200)</span></div>
+                <span class="vz-cap-name">U-vorm</span>
+                <span class="vz-cap-max">(max. 36)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="16" cy="16" rx="12" ry="8"/>
-                  <line x1="8" y1="12" x2="8" y2="20"/>
-                  <line x1="16" y1="10" x2="16" y2="22"/>
-                  <line x1="24" y1="12" x2="24" y2="20"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="6" width="24" height="3" rx="0.5" fill="#222"/>
+                  <rect x="6" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="13" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="6" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="13" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="20" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="27" y="21" width="4" height="4" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Diner<span>(max. 150)</span></div>
+                <span class="vz-cap-name">Theater</span>
+                <span class="vz-cap-max">(max. 80)</span>
               </div>
               <div class="vz-cap-item">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="10" cy="10" r="3"/>
-                  <circle cx="22" cy="10" r="3"/>
-                  <circle cx="16" cy="10" r="3"/>
-                  <circle cx="6" cy="20" r="3"/>
-                  <circle cx="16" cy="20" r="3"/>
-                  <circle cx="26" cy="20" r="3"/>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="17" width="30" height="8" rx="1" stroke="#222" stroke-width="1.5"/>
+                  <rect x="7" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="11" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="7" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="15" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
+                  <rect x="23" y="26" width="5" height="5" rx="0.5" stroke="#222" stroke-width="1.3"/>
                 </svg>
-                <div class="vz-cap-item-label">Receptie<span>(max. 250)</span></div>
+                <span class="vz-cap-name">Diner</span>
+                <span class="vz-cap-max">(max. 70)</span>
               </div>
             </div>
           </div>
           <div class="vz-card-btns">
-            <a href="#contact" class="btn-gold">Vraag offerte aan</a>
-            <a href="#contact" class="btn-outline-dark">Neem contact op</a>
+            <a href="#" class="btn-gold">Vraag offerte aan</a>
+            <a href="#" class="btn-outline">Neem contact op</a>
           </div>
         </div>
-      </div><!-- /vz-slide 2 -->
+      </div><!-- /slide 2 -->
 
     </div><!-- /vz-slider -->
-  </div><!-- /vz-slider-outer -->
+  </div><!-- /vz-slider-wrap -->
 
-  <!-- Nav -->
+  <!-- SLIDER NAV -->
   <div class="vz-nav">
     <span class="vz-counter" id="vzCounter">1/2</span>
-    <button class="vz-btn" id="vzPrev" aria-label="Vorige" disabled>&#8592;</button>
-    <button class="vz-btn" id="vzNext" aria-label="Volgende">&#8594;</button>
+    <button class="vz-arrow" id="vzPrev" disabled>&#8592;</button>
+    <button class="vz-arrow" id="vzNext">&#8594;</button>
   </div>
 
 </section>
 
 <script>
-  (function() {
-    const slider = document.getElementById('vzSlider');
-    const prevBtn = document.getElementById('vzPrev');
-    const nextBtn = document.getElementById('vzNext');
-    const counter = document.getElementById('vzCounter');
-    const slides = slider.querySelectorAll('.vz-slide');
-    const total = slides.length;
-    let current = 0;
+(function () {
+  const slider  = document.getElementById('vzSlider');
+  const prev    = document.getElementById('vzPrev');
+  const next    = document.getElementById('vzNext');
+  const counter = document.getElementById('vzCounter');
+  const slides  = slider.querySelectorAll('.vz-slide');
+  const total   = slides.length;
+  let cur = 0;
 
-    function go(n) {
-      current = Math.max(0, Math.min(n, total - 1));
-      slider.style.transform = `translateX(-${current * 100}%)`;
-      counter.textContent = `${current + 1}/${total}`;
-      prevBtn.disabled = current === 0;
-      nextBtn.disabled = current === total - 1;
-    }
+  function goTo(n) {
+    cur = Math.max(0, Math.min(n, total - 1));
+    slider.style.transform = `translateX(-${cur * 100}%)`;
+    counter.textContent = `${cur + 1}/${total}`;
+    prev.disabled = cur === 0;
+    next.disabled = cur === total - 1;
+  }
 
-    prevBtn.addEventListener('click', () => go(current - 1));
-    nextBtn.addEventListener('click', () => go(current + 1));
+  prev.addEventListener('click', () => goTo(cur - 1));
+  next.addEventListener('click', () => goTo(cur + 1));
 
-    // Touch swipe
-    let startX = 0;
-    slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    slider.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 50) go(dx < 0 ? current + 1 : current - 1);
-    });
+  // touch swipe
+  let sx = 0;
+  slider.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 50) goTo(dx < 0 ? cur + 1 : cur - 1);
+  });
 
-    go(0);
-  })();
+  goTo(0);
+})();
 </script>
+
 </body>
 </html>
