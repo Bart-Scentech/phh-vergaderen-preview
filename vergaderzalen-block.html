@@ -54,29 +54,28 @@ ul { list-style: none; }
 
 /* ═══════════════════════════════════════════════════════════
    SLIDER WRAPPER
+   overflow: visible zodat volgende slide zichtbaar afsnijdt,
+   maar buiten de sectie wordt alsnog geclipped door body overflow-x
 ═══════════════════════════════════════════════════════════ */
 .vz-slider-wrap {
   overflow: hidden;
-  /* geen padding hier — spacing via margin op sectie-niveau */
-}
-
-/* Outer container regelt de horizontale spacing */
-.vz-section {
-  padding-left: 60px;
-  padding-right: 60px;
+  padding: 0 60px;             /* spacing links + rechts */
 }
 
 .vz-slider {
   display: flex;
+  gap: 24px;                   /* ruimte tussen slides */
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 /* ═══════════════════════════════════════════════════════════
    SLIDE — 3 kolommen: kaart | foto | kaart
+   calc(100% - 80px) = slide iets smaller dan wrap,
+   zodat volgende slide ~half zichtbaar is aan de rand
 ═══════════════════════════════════════════════════════════ */
 .vz-slide {
-  min-width: 100%;
-  width: 100%;
+  min-width: calc(100% - 80px);
+  width: calc(100% - 80px);
   flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr 470px 1fr;
@@ -270,13 +269,13 @@ ul { list-style: none; }
   .vz-header { padding-bottom: 48px; }
   .vz-header h2 { font-size: 34px; }
 
-  /* Sectie-padding kleiner op mobile */
-  .vz-section { padding-left: 20px; padding-right: 20px; }
+  /* Slider padding kleiner op mobile */
+  .vz-slider-wrap { padding: 0 20px; }
 
-  /* Elke slide: HORIZONTALE slider blijft — slide wordt single-column */
+  /* Elke slide: single-column, iets smaller zodat volgende zichtbaar is */
   .vz-slide {
-    min-width: 100%;
-    width: 100%;
+    min-width: calc(100% - 40px);
+    width: calc(100% - 40px);
     flex-shrink: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -790,7 +789,9 @@ ul { list-style: none; }
 
   function goTo(n) {
     cur = Math.max(0, Math.min(n, total - 1));
-    slider.style.transform = `translateX(-${cur * 100}%)`;
+    // slide breedte = calc(100% - 80px) + 24px gap
+    const slideW = slider.querySelector('.vz-slide').offsetWidth + 24;
+    slider.style.transform = `translateX(-${cur * slideW}px)`;
     counter.textContent = `${cur + 1}/${total}`;
     prev.disabled = cur === 0;
     next.disabled = cur === total - 1;
