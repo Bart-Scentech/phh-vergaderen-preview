@@ -1,0 +1,549 @@
+[
+  {
+    "key": "group_vergaderen_hero",
+    "title": "Vergaderen — Hero",
+    "fields": [
+      {
+        "key": "field_hero_label",
+        "label": "Label (boven titel)",
+        "name": "hero_label",
+        "type": "text",
+        "default_value": "Vergaderen & Bijeenkomst"
+      },
+      {
+        "key": "field_hero_title",
+        "label": "Hoofdtitel",
+        "name": "hero_title",
+        "type": "text",
+        "default_value": "Vergaderen en bijeenkomst"
+      },
+      {
+        "key": "field_hero_subtitle",
+        "label": "Subtitel",
+        "name": "hero_subtitle",
+        "type": "text",
+        "default_value": ""
+      },
+      {
+        "key": "field_hero_background_image",
+        "label": "Achtergrond afbeelding",
+        "name": "hero_background_image",
+        "type": "image",
+        "return_format": "array"
+      },
+      {
+        "key": "field_hero_usps",
+        "label": "USP's (max 3)",
+        "name": "hero_usps",
+        "type": "repeater",
+        "max": 3,
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_usp_icon",
+            "label": "Emoji / icon",
+            "name": "icon",
+            "type": "text",
+            "default_value": "✓"
+          },
+          {
+            "key": "field_usp_title",
+            "label": "Titel",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_usp_description",
+            "label": "Beschrijving",
+            "name": "description",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 1,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_scenarios",
+    "title": "Vergaderen — Scenario Kaarten",
+    "fields": [
+      {
+        "key": "field_scenario_cards",
+        "label": "Scenario kaarten",
+        "name": "scenario_cards",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_sc_title",
+            "label": "Titel",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_sc_price",
+            "label": "Prijs (bijv. €19,50)",
+            "name": "price",
+            "type": "text"
+          },
+          {
+            "key": "field_sc_unit",
+            "label": "Eenheid (bijv. p.p.)",
+            "name": "unit",
+            "type": "text",
+            "default_value": "p.p."
+          },
+          {
+            "key": "field_sc_image",
+            "label": "Afbeelding",
+            "name": "image",
+            "type": "image",
+            "return_format": "array"
+          },
+          {
+            "key": "field_sc_features",
+            "label": "Inclusief (bullet points)",
+            "name": "features",
+            "type": "repeater",
+            "layout": "row",
+            "sub_fields": [
+              {
+                "key": "field_sc_feature_item",
+                "label": "Punt",
+                "name": "feature",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 2,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_intro",
+    "title": "Vergaderen — Intro sectie",
+    "fields": [
+      {
+        "key": "field_intro_title",
+        "label": "Titel",
+        "name": "intro_title",
+        "type": "text",
+        "default_value": "De perfecte setting voor uw vergadering"
+      },
+      {
+        "key": "field_intro_text",
+        "label": "Tekst",
+        "name": "intro_text",
+        "type": "wysiwyg",
+        "tabs": "all",
+        "toolbar": "basic"
+      },
+      {
+        "key": "field_intro_image",
+        "label": "Afbeelding",
+        "name": "intro_image",
+        "type": "image",
+        "return_format": "array"
+      },
+      {
+        "key": "field_intro_cta_text",
+        "label": "CTA knoptekst",
+        "name": "intro_cta_text",
+        "type": "text",
+        "default_value": "Vraag offerte aan"
+      },
+      {
+        "key": "field_intro_cta_url",
+        "label": "CTA link",
+        "name": "intro_cta_url",
+        "type": "url",
+        "default_value": "#contact"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 3,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_zalen",
+    "title": "Vergaderen — Vergaderzalen",
+    "fields": [
+      {
+        "key": "field_vergaderzalen",
+        "label": "Vergaderzalen",
+        "name": "vergaderzalen",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_zaal_title",
+            "label": "Naam zaal",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_zaal_image",
+            "label": "Afbeelding",
+            "name": "image",
+            "type": "image",
+            "return_format": "array"
+          },
+          {
+            "key": "field_zaal_cap_theater",
+            "label": "Capaciteit Theater",
+            "name": "cap_theater",
+            "type": "number"
+          },
+          {
+            "key": "field_zaal_cap_u",
+            "label": "Capaciteit U-opstelling",
+            "name": "cap_u",
+            "type": "number"
+          },
+          {
+            "key": "field_zaal_cap_diner",
+            "label": "Capaciteit Diner",
+            "name": "cap_diner",
+            "type": "number"
+          },
+          {
+            "key": "field_zaal_tags",
+            "label": "Faciliteiten tags",
+            "name": "tags",
+            "type": "repeater",
+            "layout": "row",
+            "sub_fields": [
+              {
+                "key": "field_zaal_tag_item",
+                "label": "Faciliteit",
+                "name": "tag",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 4,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_breaks",
+    "title": "Vergaderen — Breaks & Faciliteiten",
+    "fields": [
+      {
+        "key": "field_breaks_faciliteiten",
+        "label": "Breaks & Faciliteiten",
+        "name": "breaks_faciliteiten",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_break_title",
+            "label": "Titel",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_break_category",
+            "label": "Categorie",
+            "name": "category",
+            "type": "select",
+            "choices": {
+              "actief": "Actief",
+              "cultuur": "Cultuur",
+              "seizoen": "Seizoen"
+            }
+          },
+          {
+            "key": "field_break_description",
+            "label": "Beschrijving",
+            "name": "description",
+            "type": "textarea",
+            "rows": 3
+          },
+          {
+            "key": "field_break_image",
+            "label": "Afbeelding",
+            "name": "image",
+            "type": "image",
+            "return_format": "array"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 5,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_arrangementen",
+    "title": "Vergaderen — Andere Arrangementen",
+    "fields": [
+      {
+        "key": "field_andere_arrangementen",
+        "label": "Andere arrangementen",
+        "name": "andere_arrangementen",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_arr_title",
+            "label": "Titel",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_arr_image",
+            "label": "Afbeelding",
+            "name": "image",
+            "type": "image",
+            "return_format": "array"
+          },
+          {
+            "key": "field_arr_url",
+            "label": "Link",
+            "name": "url",
+            "type": "url"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 6,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_outro",
+    "title": "Vergaderen — Outro sectie (culinair)",
+    "fields": [
+      {
+        "key": "field_outro_title",
+        "label": "Titel",
+        "name": "outro_title",
+        "type": "text",
+        "default_value": "Genieten na een productieve dag"
+      },
+      {
+        "key": "field_outro_text",
+        "label": "Tekst",
+        "name": "outro_text",
+        "type": "wysiwyg",
+        "tabs": "all",
+        "toolbar": "basic"
+      },
+      {
+        "key": "field_outro_image",
+        "label": "Afbeelding",
+        "name": "outro_image",
+        "type": "image",
+        "return_format": "array"
+      },
+      {
+        "key": "field_outro_cta_text",
+        "label": "CTA knoptekst",
+        "name": "outro_cta_text",
+        "type": "text",
+        "default_value": "Meer over Restaurant BØFF"
+      },
+      {
+        "key": "field_outro_cta_url",
+        "label": "CTA link",
+        "name": "outro_cta_url",
+        "type": "url"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 7,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_reviews",
+    "title": "Vergaderen — Reviews",
+    "fields": [
+      {
+        "key": "field_review_score",
+        "label": "Zoover score",
+        "name": "review_score",
+        "type": "text",
+        "default_value": "4.1"
+      },
+      {
+        "key": "field_review_count",
+        "label": "Aantal beoordelingen",
+        "name": "review_count",
+        "type": "text",
+        "default_value": "1.596"
+      },
+      {
+        "key": "field_reviews",
+        "label": "Reviews",
+        "name": "reviews",
+        "type": "repeater",
+        "layout": "row",
+        "sub_fields": [
+          {
+            "key": "field_review_author",
+            "label": "Naam reviewer",
+            "name": "author",
+            "type": "text"
+          },
+          {
+            "key": "field_review_date",
+            "label": "Datum",
+            "name": "date",
+            "type": "text"
+          },
+          {
+            "key": "field_review_rating",
+            "label": "Sterren (1-5)",
+            "name": "rating",
+            "type": "number",
+            "min": 1,
+            "max": 5,
+            "default_value": 5
+          },
+          {
+            "key": "field_review_text",
+            "label": "Review tekst",
+            "name": "text",
+            "type": "textarea",
+            "rows": 3
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 8,
+    "active": true
+  },
+  {
+    "key": "group_vergaderen_contact",
+    "title": "Vergaderen — Contact CTA",
+    "fields": [
+      {
+        "key": "field_contact_title",
+        "label": "Titel",
+        "name": "contact_title",
+        "type": "text",
+        "default_value": "Wilt u meer weten?"
+      },
+      {
+        "key": "field_contact_text",
+        "label": "Tekst",
+        "name": "contact_text",
+        "type": "textarea",
+        "rows": 3
+      },
+      {
+        "key": "field_contact_image",
+        "label": "Afbeelding",
+        "name": "contact_image",
+        "type": "image",
+        "return_format": "array"
+      },
+      {
+        "key": "field_contact_phone",
+        "label": "Telefoonnummer",
+        "name": "contact_phone",
+        "type": "text",
+        "default_value": "077 464 1000"
+      },
+      {
+        "key": "field_contact_email",
+        "label": "E-mailadres",
+        "name": "contact_email",
+        "type": "email",
+        "default_value": "info@parkhotelhorst.nl"
+      },
+      {
+        "key": "field_contact_address",
+        "label": "Adres",
+        "name": "contact_address",
+        "type": "text",
+        "default_value": "Terpseweg 2, 5961 NH Horst"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-vergaderen.php"
+        }
+      ]
+    ],
+    "menu_order": 9,
+    "active": true
+  }
+]
