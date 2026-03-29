@@ -293,8 +293,7 @@ ul { list-style: none; }
   .vz-card-list { grid-template-columns: 1fr; }
 
   /* Capaciteitsmatrix verborgen op mobile — via popup */
-  .vz-capacity { display: none; }
-  .vz-cap-trigger { display: flex; }
+  .vz-capacity { display: none !important; }
 
   .vz-nav { padding: 18px 20px 0; }
 }
@@ -308,7 +307,7 @@ ul { list-style: none; }
    CAPACITEIT POPUP TRIGGER (mobile only)
 ═══════════════════════════════════════════════════════════ */
 .vz-cap-trigger {
-  display: none; /* alleen zichtbaar op mobile via @media hierboven */
+  display: none; /* standaard verborgen op desktop */
   align-items: center;
   gap: 10px;
   margin-bottom: 32px;
@@ -316,6 +315,11 @@ ul { list-style: none; }
   padding-top: 24px;
   border-top: 1px solid rgba(0,0,0,0.13);
   cursor: pointer;
+}
+
+/* Toon trigger op mobile */
+@media (max-width: 860px) {
+  .vz-cap-trigger { display: flex; }
 }
 .vz-cap-trigger-label {
   font-size: 13.5px;
@@ -361,6 +365,8 @@ ul { list-style: none; }
   background: #f5efe3;
   width: 100%;
   max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
   border-radius: 12px 12px 0 0;
   padding: 28px 24px 36px;
   position: relative;
