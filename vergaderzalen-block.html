@@ -284,55 +284,18 @@ ul { list-style: none; }
     grid-template-rows: auto auto auto;
   }
 
-  /* Hele sectie: max 80vh met ruimte boven en onder */
-  .vz-section {
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 24px;
-    padding-bottom: 12px;
-    overflow: hidden;
-  }
-
-  /* Header compacter */
-  .vz-header {
-    padding-bottom: 16px;
-    flex-shrink: 0;
-  }
-  .vz-header h2 { font-size: 22px; margin-bottom: 8px; }
-  .vz-header p  { font-size: 13px; line-height: 1.5; }
-
-  /* Slider wrapper vult resterende ruimte */
-  .vz-slider-wrap {
-    flex: 1;
-    overflow: hidden;
-    padding: 0 16px;
-    min-height: 0; /* nodig voor flex shrink */
-  }
-
-  /* Slide stapelt vertikaal, vult wrapper */
-  .vz-slide {
-    height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 180px 1fr; /* foto vast, kaart vult rest */
-  }
-
   /* Volgorde op mobile: foto boven, tekst onder */
-  .vz-card  { order: 2; overflow-y: auto; min-height: 0; }
-  .vz-photo { order: 1; min-height: unset; height: 180px; }
+  .vz-card  { order: 2; }
+  .vz-photo { order: 1; min-height: 260px; }
 
-  .vz-card { padding: 16px 16px 20px; }
-  .vz-card-title { font-size: 22px; margin-bottom: 10px; }
-  .vz-card-desc  { font-size: 13px; margin-bottom: 14px; }
-  .vz-card-list  { grid-template-columns: 1fr; gap: 3px; margin-bottom: 16px; }
-  .vz-card-list li { font-size: 12.5px; }
+  .vz-card { padding: 32px 20px 32px; }
+  .vz-card-title { font-size: 28px; }
+  .vz-card-list { grid-template-columns: 1fr; }
 
   /* Capaciteitsmatrix verborgen op mobile — via popup */
   .vz-capacity { display: none !important; }
 
-  /* Nav compacter */
-  .vz-nav { padding: 10px 16px 0; flex-shrink: 0; }
-  .vz-arrow { width: 38px; height: 38px; }
+  .vz-nav { padding: 18px 20px 0; }
 }
 
 @media (max-width: 480px) {
