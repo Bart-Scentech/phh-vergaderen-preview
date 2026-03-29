@@ -106,11 +106,11 @@ ul { list-style: none; }
 /* ── bullet lijst — verborgen (vervangen door icon bar) ── */
 .vz-card-list { display: none; }
 
-/* ── titel + max capaciteit op één regel ── */
+/* ── titel + max capaciteit + info knop op één regel ── */
 .vz-card-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 14px;
 }
@@ -120,7 +120,7 @@ ul { list-style: none; }
   font-weight: 700;
   color: #1c1c1c;
   line-height: 1.15;
-  margin-bottom: 0; /* reset — zit nu in header */
+  margin-bottom: 0;
 }
 .vz-card-maxcap {
   font-size: 13px;
@@ -128,6 +128,28 @@ ul { list-style: none; }
   font-weight: 400;
   white-space: nowrap;
 }
+/* Info-knop: klikbaar ⓘ icoontje */
+.vz-cap-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1c1c1c;
+  color: #f5efe3;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: none;
+  line-height: 1;
+  transition: background 0.2s;
+  position: relative;
+  top: -2px; /* visueel uitlijnen met baseline tekst */
+}
+.vz-cap-info-btn:hover { background: #c8973a; }
 
 /* ── icon bar: 3 faciliteiten ── */
 .vz-icon-bar {
@@ -341,47 +363,11 @@ ul { list-style: none; }
   .btn-gold, .btn-outline { text-align: center; }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CAPACITEIT POPUP TRIGGER (mobile only)
-═══════════════════════════════════════════════════════════ */
-.vz-cap-trigger {
-  display: none; /* standaard verborgen op desktop */
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
-  margin-top: auto;
-  padding-top: 24px;
-  border-top: 1px solid rgba(0,0,0,0.13);
-  cursor: pointer;
-}
+/* ── Info-knop: alleen zichtbaar op mobile ── */
+.vz-cap-info-btn { display: none; }
 
-/* Toon trigger op mobile */
 @media (max-width: 860px) {
-  .vz-cap-trigger { display: flex; }
-}
-.vz-cap-trigger-label {
-  font-size: 13.5px;
-  color: #333;
-  font-weight: 400;
-}
-.vz-cap-trigger-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  background: #f0e8d8;
-  border: 1px solid rgba(0,0,0,0.15);
-  font-size: 13px;
-  font-weight: 700;
-  color: #1c1c1c;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.vz-cap-trigger-badge:hover { background: #e8dcc8; }
-.vz-cap-trigger-badge svg {
-  width: 15px;
-  height: 15px;
-  opacity: 0.6;
+  .vz-cap-info-btn { display: inline-flex; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -465,6 +451,7 @@ ul { list-style: none; }
           <div class="vz-card-header">
             <div class="vz-card-title">Heer van Miyrlaer</div>
             <span class="vz-card-maxcap">max. 16 pers.</span>
+            <button class="vz-cap-info-btn" onclick="vzOpenCap(this)" title="Bekijk capaciteitsmatrix">i</button>
           </div>
           <p class="vz-card-desc">
             Zoekt u een intieme locatie voor een kleine bijeenkomst, brainstormsessie of privédiner? Dan zijn Heer van Miyrlaer 1, 2 of 3 ideaal. Deze zalen bieden volop daglicht voor optimale concentratie en een prachtig uitzicht op het groene landschap naast het hotel. Geniet van de natuurlijke omgeving en kom tot rust.
@@ -623,15 +610,6 @@ ul { list-style: none; }
             </div>
           </div>
 
-          <!-- Mobile: capaciteit trigger knop -->
-          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
-            <span class="vz-cap-trigger-label">Capaciteit:</span>
-            <span class="vz-cap-trigger-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              1 t/m 48 personen
-            </span>
-          </div>
-
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -651,6 +629,7 @@ ul { list-style: none; }
           <div class="vz-card-header">
             <div class="vz-card-title">Huys ter Horst</div>
             <span class="vz-card-maxcap">max. 28 pers.</span>
+            <button class="vz-cap-info-btn" onclick="vzOpenCap(this)" title="Bekijk capaciteitsmatrix">i</button>
           </div>
           <p class="vz-card-desc">
             De Stijlkamer Huys ter Horst biedt een prachtige traditionele setting voor bijeenkomsten. Met een open haard, kroonluchters en kandelaers creëert de zaal een warme en uitnodigende sfeer, perfect voor intieme diners, privéborrels en vergaderingen. Het daglicht draagt bij aan een aangename werkomgeving, waardoor u zich optimaal kunt concentreren op uw taken.
@@ -767,15 +746,6 @@ ul { list-style: none; }
             </div>
           </div>
 
-          <!-- Mobile: capaciteit trigger knop -->
-          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
-            <span class="vz-cap-trigger-label">Capaciteit:</span>
-            <span class="vz-cap-trigger-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              1 t/m 48 personen
-            </span>
-          </div>
-
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -795,6 +765,7 @@ ul { list-style: none; }
           <div class="vz-card-header">
             <div class="vz-card-title">Terpse Zaal</div>
             <span class="vz-card-maxcap">max. 250 pers.</span>
+            <button class="vz-cap-info-btn" onclick="vzOpenCap(this)" title="Bekijk capaciteitsmatrix">i</button>
           </div>
           <p class="vz-card-desc">
             De Terpse Zaal is onze grootste multifunctionele zaal, ideaal voor grote conferenties, productlanceringen en gala-diners. Met een oppervlakte van 350m² en state-of-the-art AV-apparatuur biedt deze zaal alles wat u nodig heeft voor een succesvol evenement.
@@ -892,14 +863,6 @@ ul { list-style: none; }
               </div>
             </div>
           </div>
-          <!-- Mobile: capaciteit trigger knop -->
-          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
-            <span class="vz-cap-trigger-label">Capaciteit:</span>
-            <span class="vz-cap-trigger-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              1 t/m 250 personen
-            </span>
-          </div>
 
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
@@ -920,6 +883,7 @@ ul { list-style: none; }
           <div class="vz-card-header">
             <div class="vz-card-title">Horster Zaal</div>
             <span class="vz-card-maxcap">max. 80 pers.</span>
+            <button class="vz-cap-info-btn" onclick="vzOpenCap(this)" title="Bekijk capaciteitsmatrix">i</button>
           </div>
           <p class="vz-card-desc">
             De Horster Zaal is perfect voor middelgrote bijeenkomsten, seminars en trainingen. Met daglicht en een modern interieur biedt deze veelzijdige zaal alle comfort voor een productieve dag.
@@ -998,14 +962,6 @@ ul { list-style: none; }
                 <span class="vz-cap-max">(max. 70)</span>
               </div>
             </div>
-          </div>
-          <!-- Mobile: capaciteit trigger knop -->
-          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
-            <span class="vz-cap-trigger-label">Capaciteit:</span>
-            <span class="vz-cap-trigger-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              1 t/m 80 personen
-            </span>
           </div>
 
           <div class="vz-card-btns">
