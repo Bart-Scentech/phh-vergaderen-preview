@@ -284,23 +284,117 @@ ul { list-style: none; }
     grid-template-rows: auto auto auto;
   }
 
-  /* Volgorde op mobile: tekst boven, foto onder */
-  .vz-card  { order: 1; }
-  .vz-photo { order: 2; min-height: 260px; }
+  /* Volgorde op mobile: foto boven, tekst onder */
+  .vz-card  { order: 2; }
+  .vz-photo { order: 1; min-height: 260px; }
 
   .vz-card { padding: 32px 20px 32px; }
   .vz-card-title { font-size: 28px; }
   .vz-card-list { grid-template-columns: 1fr; }
 
-  .vz-cap-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Capaciteitsmatrix verborgen op mobile — via popup */
+  .vz-capacity { display: none; }
+  .vz-cap-trigger { display: flex; }
 
   .vz-nav { padding: 18px 20px 0; }
 }
 
 @media (max-width: 480px) {
-  .vz-cap-grid { grid-template-columns: repeat(3, 1fr); }
   .vz-card-btns { flex-direction: column; }
   .btn-gold, .btn-outline { text-align: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CAPACITEIT POPUP TRIGGER (mobile only)
+═══════════════════════════════════════════════════════════ */
+.vz-cap-trigger {
+  display: none; /* alleen zichtbaar op mobile via @media hierboven */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0,0,0,0.13);
+  cursor: pointer;
+}
+.vz-cap-trigger-label {
+  font-size: 13.5px;
+  color: #333;
+  font-weight: 400;
+}
+.vz-cap-trigger-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #f0e8d8;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1c1c;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.vz-cap-trigger-badge:hover { background: #e8dcc8; }
+.vz-cap-trigger-badge svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CAPACITEIT POPUP OVERLAY
+═══════════════════════════════════════════════════════════ */
+.vz-cap-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.72);
+  align-items: flex-end;
+  justify-content: center;
+}
+.vz-cap-overlay.open {
+  display: flex;
+}
+.vz-cap-modal {
+  background: #f5efe3;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px 12px 0 0;
+  padding: 28px 24px 36px;
+  position: relative;
+  animation: slideUp 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.vz-cap-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.vz-cap-modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c1c1c;
+}
+.vz-cap-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.2);
+  background: transparent;
+  font-size: 18px;
+  color: #1c1c1c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
   </style>
@@ -469,6 +563,15 @@ ul { list-style: none; }
             </div>
           </div>
 
+          <!-- Mobile: capaciteit trigger knop -->
+          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
+            <span class="vz-cap-trigger-label">Capaciteit:</span>
+            <span class="vz-cap-trigger-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              1 t/m 48 personen
+            </span>
+          </div>
+
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -589,6 +692,15 @@ ul { list-style: none; }
             </div>
           </div>
 
+          <!-- Mobile: capaciteit trigger knop -->
+          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
+            <span class="vz-cap-trigger-label">Capaciteit:</span>
+            <span class="vz-cap-trigger-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              1 t/m 48 personen
+            </span>
+          </div>
+
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -690,6 +802,15 @@ ul { list-style: none; }
               </div>
             </div>
           </div>
+          <!-- Mobile: capaciteit trigger knop -->
+          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
+            <span class="vz-cap-trigger-label">Capaciteit:</span>
+            <span class="vz-cap-trigger-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              1 t/m 250 personen
+            </span>
+          </div>
+
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -773,6 +894,15 @@ ul { list-style: none; }
               </div>
             </div>
           </div>
+          <!-- Mobile: capaciteit trigger knop -->
+          <div class="vz-cap-trigger" onclick="vzOpenCap(this)">
+            <span class="vz-cap-trigger-label">Capaciteit:</span>
+            <span class="vz-cap-trigger-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              1 t/m 80 personen
+            </span>
+          </div>
+
           <div class="vz-card-btns">
             <a href="#" class="btn-gold">Vraag offerte aan</a>
             <a href="#" class="btn-outline">Neem contact op</a>
@@ -798,8 +928,20 @@ ul { list-style: none; }
 
 </section>
 
+<!-- Capaciteit popup overlay -->
+<div class="vz-cap-overlay" id="vzCapOverlay" onclick="vzCloseCapOnOverlay(event)">
+  <div class="vz-cap-modal">
+    <div class="vz-cap-modal-header">
+      <span class="vz-cap-modal-title" id="vzCapModalTitle">Capaciteit</span>
+      <button class="vz-cap-modal-close" onclick="vzCloseCap()">×</button>
+    </div>
+    <div id="vzCapModalContent" class="vz-cap-grid"></div>
+  </div>
+</div>
+
 <script>
 (function () {
+  /* ── Slider ── */
   const slider  = document.getElementById('vzSlider');
   const prev    = document.getElementById('vzPrev');
   const next    = document.getElementById('vzNext');
@@ -810,7 +952,7 @@ ul { list-style: none; }
 
   function goTo(n) {
     cur = Math.max(0, Math.min(n, total - 1));
-    const slideW = slider.querySelector('.vz-slide').offsetWidth + 24; // breedte + gap
+    const slideW = slider.querySelector('.vz-slide').offsetWidth + 24;
     slider.style.transform = `translateX(-${cur * slideW}px)`;
     counter.textContent = `${cur + 1}/${total}`;
     prev.disabled = cur === 0;
@@ -820,7 +962,6 @@ ul { list-style: none; }
   prev.addEventListener('click', () => goTo(cur - 1));
   next.addEventListener('click', () => goTo(cur + 1));
 
-  // touch swipe
   let sx = 0;
   slider.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend',   e => {
@@ -829,6 +970,35 @@ ul { list-style: none; }
   });
 
   goTo(0);
+
+  /* ── Capaciteit popup ── */
+  window.vzOpenCap = function(triggerEl) {
+    // Zoek de dichtstbijzijnde .vz-card
+    const card = triggerEl.closest('.vz-card');
+    // Haal de zaal naam op
+    const title = card.querySelector('.vz-card-title').textContent;
+    // Haal de capaciteitsmatrix HTML op
+    const capGrid = card.querySelector('.vz-cap-grid');
+
+    document.getElementById('vzCapModalTitle').textContent = title + ' — Capaciteit';
+    document.getElementById('vzCapModalContent').innerHTML = capGrid ? capGrid.innerHTML : '';
+    document.getElementById('vzCapOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.vzCloseCap = function() {
+    document.getElementById('vzCapOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.vzCloseCapOnOverlay = function(e) {
+    if (e.target === document.getElementById('vzCapOverlay')) vzCloseCap();
+  };
+
+  // Sluit met Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') vzCloseCap();
+  });
 })();
 </script>
 
