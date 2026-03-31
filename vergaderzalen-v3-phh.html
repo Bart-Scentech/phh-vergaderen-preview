@@ -126,9 +126,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    SLIDE
 ═══════════════════════════════════════════ */
 .vz-slide {
-  min-width: 100%;
-  width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 1200px; /* gelijk aan max-width van de wrapper */
+  max-width: 1200px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 540px;
@@ -795,7 +794,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
   function goTo(n) {
     cur = Math.max(0, Math.min(n, total - 1));
-    const slideW = document.querySelector('.vz-slider-wrap').offsetWidth;
+    const slideW = slides[0].offsetWidth;
     track.style.transform = `translateX(-${cur * slideW}px)`;
     count.textContent = pad(cur + 1) + ' / ' + pad(total);
     prev.disabled = cur === 0;
