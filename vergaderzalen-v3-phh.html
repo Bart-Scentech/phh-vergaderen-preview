@@ -115,13 +115,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    SLIDE — foto links piept, kaart rechts
 ═══════════════════════════════════════════ */
 .vz-slide {
-  /* 85% breedte zodat volgende slide rechts al ietsje te zien is */
-  min-width: 85%;
+  min-width: 100%;
   flex-shrink: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 540px;
-  margin-right: 24px;
 }
 
 /* ═══════════════════════════════════════════
@@ -779,7 +777,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
   function goTo(n) {
     cur = Math.max(0, Math.min(n, total - 1));
-    const slideW = slides[0].offsetWidth + 24; // breedte + gap
+    const slideW = slides[0].offsetWidth;
     track.style.transform = `translateX(-${cur * slideW}px)`;
     count.textContent = pad(cur + 1) + ' / ' + pad(total);
     prev.disabled = cur === 0;
