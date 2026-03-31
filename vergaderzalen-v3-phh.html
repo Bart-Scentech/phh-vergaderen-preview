@@ -45,13 +45,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .vz-section {
   background-color: var(--black);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 4 L52 18 L52 46 L28 60 L4 46 L4 18 Z' fill='none' stroke='%23C89B4F' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M28 64 L52 78 L52 106 L28 120 L4 106 L4 78 Z' fill='none' stroke='%23C89B4F' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M-28 4 L-4 18 L-4 46 L-28 60 L-52 46 L-52 18 Z' fill='none' stroke='%23C89B4F' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M84 4 L108 18 L108 46 L84 60 L60 46 L60 18 Z' fill='none' stroke='%23C89B4F' stroke-width='0.4' opacity='0.12'/%3E%3C/svg%3E");
-  padding: 96px 32px 80px;
+  padding: 96px 0 80px;
   overflow: hidden;
 }
 
+/* Header & nav in container, slider full-width */
 .vz-inner {
   max-width: var(--max);
   margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Slider mag full-width over sectie lopen */
+.vz-slider-outer-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 /* ═══════════════════════════════════════════
@@ -115,7 +124,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    SLIDE — foto links piept, kaart rechts
 ═══════════════════════════════════════════ */
 .vz-slide {
-  min-width: 100%;
+  min-width: calc(100% - 64px); /* 64px = 2x sectie padding */
   flex-shrink: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -453,7 +462,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
       <p class="vz-header__sub">Van intieme boardroom tot grote conferentiezaal — omgeven door het groen van De Maasduinen, de perfecte setting voor elke bijeenkomst.</p>
     </div>
 
-    <!-- ── SLIDER ── -->
+    </div><!-- /vz-inner -->
+
+    <!-- ── SLIDER (full-width container) ── -->
+    <div class="vz-slider-outer-wrap" style="padding:0 32px; overflow:hidden;">
     <div class="vz-slider-wrap">
       <div class="vz-track" id="vzTrack">
 
@@ -711,7 +723,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
       </div><!-- /vz-track -->
     </div><!-- /vz-slider-wrap -->
+    </div><!-- /vz-slider-outer-wrap -->
 
+    <div class="vz-inner" style="padding-top:0;">
     <!-- ── NAVIGATIE ── -->
     <div class="vz-nav">
       <div class="vz-dots" id="vzDots">
@@ -731,7 +745,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
       </div>
     </div>
 
-  </div><!-- /vz-inner -->
+    </div><!-- /vz-nav -->
+  </div><!-- /vz-inner (nav) -->
 </section>
 
 <!-- ═══════════════════════════════════════════
