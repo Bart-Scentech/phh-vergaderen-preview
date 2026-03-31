@@ -107,9 +107,10 @@ button { cursor: pointer; font-family: inherit; }
 ═══════════════════════════════════ */
 .vz-slide {
   min-width: 100%;
+  width: 100%;
   flex-shrink: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 560px;
   border-radius: 3px;
   overflow: hidden;
@@ -224,7 +225,8 @@ button { cursor: pointer; font-family: inherit; }
 .vz-cap__grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  overflow: hidden;
 }
 
 .vz-cap__item {
