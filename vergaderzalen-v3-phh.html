@@ -56,11 +56,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 0 32px;
 }
 
+.vz-inner--nav { padding-top: 0; }
+
 /* Slider mag full-width over sectie lopen */
 .vz-slider-outer-wrap {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 32px;
+  overflow: hidden;
 }
 
 /* ═══════════════════════════════════════════
@@ -423,31 +426,81 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    MOBILE ≤ 860px
 ═══════════════════════════════════════════ */
 @media (max-width: 860px) {
-  .vz-section { padding: 64px 16px 56px; }
-  .vz-header { margin-bottom: 48px; }
+  .vz-section { padding: 56px 0 48px; }
+  .vz-inner { padding: 0 20px; }
+  .vz-header { margin-bottom: 40px; }
+  .vz-header__sub { font-size: 14px; }
 
+  /* Slider outer wrap: kleinere padding op mobile */
+  .vz-slider-outer-wrap { padding: 0 20px !important; overflow: hidden; }
+  .vz-inner--nav { padding: 0 20px; }
+
+  /* Slide: stacked layout, volle breedte minus marge voor peek-effect */
   .vz-slide {
-    min-width: 90%;
+    flex: 0 0 calc(100vw - 56px);
+    max-width: calc(100vw - 56px);
+    width: calc(100vw - 56px);
     grid-template-columns: 1fr;
-    grid-template-rows: 260px auto;
+    grid-template-rows: 240px auto;
     margin-right: 16px;
     min-height: unset;
   }
 
-  .vz-photo { order: -1; min-height: 260px; }
-  .vz-badge { bottom: 16px; left: 16px; }
+  /* Foto bovenaan */
+  .vz-photo { order: -1; min-height: 240px; }
+  .vz-photo::after { background: linear-gradient(to bottom, transparent 60%, rgba(20,20,20,0.25) 100%); }
+  .vz-badge { bottom: 12px; left: 12px; font-size: 9px; }
 
-  .vz-card { padding: 28px 20px 32px; }
-  .vz-card__desc { margin-bottom: 20px; }
-  .vz-cap { margin-bottom: 24px; }
+  /* Kaart compacter */
+  .vz-card { padding: 24px 20px 28px; }
+  .vz-card__eyebrow { font-size: 9.5px; margin-bottom: 8px; }
+  .vz-card__title { font-size: clamp(20px, 5vw, 26px); margin-bottom: 6px; }
+  .vz-card__meta { font-size: 11px; margin-bottom: 16px; }
+  .vz-card__desc { font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
 
-  .vz-nav { margin-top: 24px; }
+  /* Faciliteiten */
+  .vz-fac { padding: 12px 0; margin-bottom: 20px; }
+  .vz-fac__label { font-size: 11px; }
+  .vz-fac__sub { font-size: 10px; }
+  .vz-fac__icon { width: 20px; height: 20px; }
+
+  /* Capaciteit */
+  .vz-cap { margin-bottom: 20px; }
+  .vz-cap__label { font-size: 9px; margin-bottom: 8px; }
+  .vz-cap__tag { font-size: 11.5px; padding: 4px 8px 4px 7px; }
+
+  /* Knoppen: full-width stack */
+  .vz-btns { flex-direction: column; gap: 10px; }
+  .btn-primary, .btn-outline {
+    text-align: center;
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  /* Navigatie */
+  .vz-nav { margin-top: 20px; }
+  .vz-count { font-size: 11px; min-width: 36px; }
+  .vz-arrow { width: 40px; height: 40px; }
 }
 
 @media (max-width: 480px) {
-  .vz-slide { min-width: 95%; }
-  .vz-btns { flex-direction: column; }
-  .btn-primary, .btn-outline { text-align: center; }
+  .vz-slide {
+    flex: 0 0 calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+    width: calc(100vw - 40px);
+  }
+  .vz-slider-outer-wrap { padding: 0 16px !important; }
+  .vz-inner--nav { padding: 0 16px; }
+  .vz-photo { min-height: 220px; }
+}
+
+@media (max-width: 360px) {
+  .vz-slide {
+    flex: 0 0 calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    width: calc(100vw - 32px);
+  }
+  .vz-card { padding: 20px 16px 24px; }
 }
 
   </style>
@@ -468,7 +521,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     </div><!-- /vz-inner -->
 
     <!-- ── SLIDER (full-width container) ── -->
-    <div class="vz-slider-outer-wrap" style="padding:0 32px; overflow:hidden;">
+    <div class="vz-slider-outer-wrap">
     <div class="vz-slider-wrap">
       <div class="vz-track" id="vzTrack">
 
@@ -728,7 +781,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     </div><!-- /vz-slider-wrap -->
     </div><!-- /vz-slider-outer-wrap -->
 
-    <div class="vz-inner" style="padding-top:0;">
+    <div class="vz-inner vz-inner--nav">
     <!-- ── NAVIGATIE ── -->
     <div class="vz-nav">
       <div class="vz-dots" id="vzDots">
