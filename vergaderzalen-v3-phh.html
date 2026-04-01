@@ -426,10 +426,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    MOBILE ≤ 860px
 ═══════════════════════════════════════════ */
 @media (max-width: 860px) {
-  .vz-section { padding: 56px 0 48px; }
+  .vz-section { padding: 48px 0 40px; }
   .vz-inner { padding: 0 20px; }
-  .vz-header { margin-bottom: 40px; }
-  .vz-header__sub { font-size: 14px; }
+  .vz-header { margin-bottom: 36px; }
+
+  /* Header tekst: wrap correct op small screens */
+  .vz-header__eyebrow { letter-spacing: 0.12em; white-space: normal; word-break: break-word; }
+  .vz-header__title { font-size: clamp(24px, 7vw, 36px); }
+  .vz-header__sub { font-size: 13.5px; max-width: 100%; padding: 0 4px; }
 
   /* Slider outer wrap: kleinere padding op mobile */
   .vz-slider-outer-wrap { padding: 0 20px !important; overflow: hidden; }
@@ -458,11 +462,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .vz-card__meta { font-size: 11px; margin-bottom: 16px; }
   .vz-card__desc { font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
 
-  /* Faciliteiten */
-  .vz-fac { padding: 12px 0; margin-bottom: 20px; }
-  .vz-fac__label { font-size: 11px; }
-  .vz-fac__sub { font-size: 10px; }
-  .vz-fac__icon { width: 20px; height: 20px; }
+  /* Faciliteiten — geen overflow, tekst mag wrappen */
+  .vz-fac { padding: 12px 0; margin-bottom: 20px; overflow: hidden; }
+  .vz-fac__item { padding: 0 4px; min-width: 0; flex: 1 1 0; }
+  .vz-fac__label { font-size: 10.5px; word-break: break-word; hyphens: auto; }
+  .vz-fac__sub { font-size: 9.5px; word-break: break-word; }
+  .vz-fac__icon { width: 19px; height: 19px; }
 
   /* Capaciteit */
   .vz-cap { margin-bottom: 20px; }
